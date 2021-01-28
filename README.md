@@ -1,10 +1,10 @@
  > As you complete each section you **must** remove the prompt text. Every *turnin* of this project includes points for formatting of this README so keep it clean and keep it up to date. 
  > Prompt text is any lines beginning with "\>"
  > Replace anything between \<...\> with your project specifics and remove angle brackets. For example, you need to name your project and replace the header right below this line with that title (no angle brackets). 
-# \<Project title\>
+# \Escape from Darchom Dungeon\
  > Your author list below should include links to all members GitHub (remove existing author).
  
- > Authors: \<[Jeffrey McDaniel](https://github.com/jmcda001)\>
+ > Authors: \ [Jimmy Li](https://github.com/jli283-hub)[Bradley Morck] (https://github.com/football3o)[Shreya Chitturi](https://github.com/sc004)\
  
  > You will be forming a group of **THREE** students and working on an interesting project. A list of proposed project ideas that have been successful in previous quarters is given in the project specifications link on iLearn. You can select an idea from the list and decide which design patterns you will use to implement it. If you want to propose your own original idea, you will have to contact an instructor to discuss the project and obtain written permission before you submit your project proposal. Your project needs to implement two design patterns.The project work should be divided almost equally among team members and each member is expected to work on at least one design pattern (more than one partner may work on a pattern) and some of its test cases. You can of course help each other, but it needs to be clear who will be responsible for which patterns and for which features.
  
@@ -18,18 +18,23 @@
 > * All project phases are to be submitted to this GitHub repository. You should modify this README file to reflect the different phases of the project. In addition, you should regularly hold sprint meetings with your group.
 
 ## Project Description
- > Your project description should summarize the project you are proposing. Be sure to include
- > * Why is it important or interesting to you?
- > * What languages/tools/technologies do you plan to use? (This list may change over the course of the project)
- >   * [toolname](link) - Short description
- > * What will be the input/output of your project?
- > * What are the two design patterns you will be using? For each design pattern you must explain in 4-5 sentences:
- >   * Why you picked this pattern and what feature you will implement with it
- >   * What problem you anticipate encountering when implementing your project that you will solve using the design pattern
- >   * Why the chosen design pattern will lead to a good solution to that problem
- > * This description should be in enough detail that the TA/instructor can determine the complexity of the project and if it is sufficient for the team members to complete in the time allotted. 
+This project is interesting to us because it allows a lot of possibilities and creative freedom. We can also give the user more freedom and these interactions can change how one might reach the conclusion. This project also seems challenging, yet fun at the same time because we get to apply the concepts we learned in class in a fun way.
 
- > ## Phase II
+     * Language: C++
+     * Github
+     * Hammer
+
+       	We will prompt the user with a few choices to choose from. Once the user decides what they would like to do, they will input their choice into the console. Based upon the user’s input, the program will output what will now happen to the user as well as any stats that they may need to make future decisions.
+
+        Composite: The composite design pattern is a structural design pattern that focuses on the composition of objects and classes. In this specific pattern, we can create a tree structure to represent hierarchies and it is made of four parts, component, leaf, composite, and client.
+        We picked the Composite pattern because it allows us to combine groups of objects together. An issue that we could come across in our game is when we are trying to let the player know stats about their health and equipment, In our game, we will be using the composite pattern for the equipment and the different aspects of it. For example, we will declare a class named CompositeEquipment which will act as the base class for equipment that contains other equipment. In addition, we can also use the composite pattern to keep track of the stats of the player. 
+
+        Build: The build pattern is a creational pattern that creates independent complex objects using simpler objects and it is made up of the product, builder, concreteBuilder, and Director.
+        We picked the Build pattern because it simplifies the creation of large objects that can be created using different components. I anticipate that we will have issues when designing the multiple levels of our dungeon.  By using the builder pattern, it will simplify what is changed from level to level by adjusting variable values in the childs of the main dungeon level builder class; we could break down our dungeon levels to specific components like number of enemies/chests/room count/traps/etc with each level altering the values.
+
+
+
+## Phase II
  > In addition to completing the "Class Diagram" section below, you will need to 
  > * Set up your GitHub project board as a Kanban board for the project. It should have columns that map roughly to 
  >   * Backlog, TODO, In progress, In testing, Done

@@ -18,19 +18,29 @@
 > * All project phases are to be submitted to this GitHub repository. You should modify this README file to reflect the different phases of the project. In addition, you should regularly hold sprint meetings with your group.
 
 ## Project Description
-This project is interesting to us because it allows a lot of possibilities and creative freedom. We can also give the user more freedom and these interactions can change how one might reach the conclusion. This project also seems challenging, yet fun at the same time because we get to apply the concepts we learned in class in a fun way.
+This project is interesting to us because it allows a lot of possibilities and creative freedom. We can also give the user more freedom and these interactions can change how one
+might reach the conclusion. This project also seems challenging, yet fun at the same time because we get to apply the concepts we learned in class in a fun way.
 
      * Language: C++
      * Github
      * Hammer
 
-       	We will prompt the user with a few choices to choose from. Once the user decides what they would like to do, they will input their choice into the console. Based upon the user’s input, the program will output what will now happen to the user as well as any stats that they may need to make future decisions.
+We will prompt the user with a few choices to choose from. Once the user decides what they would like to do, they will input their choice into the console. Based upon
+the user’s input, the program will output what will now happen to the user as well as any stats that they may need to make future decisions.
 
-        Composite: The composite design pattern is a structural design pattern that focuses on the composition of objects and classes. In this specific pattern, we can create a tree structure to represent hierarchies and it is made of four parts, component, leaf, composite, and client.
-        We picked the Composite pattern because it allows us to combine groups of objects together. An issue that we could come across in our game is when we are trying to let the player know stats about their health and equipment, In our game, we will be using the composite pattern for the equipment and the different aspects of it. For example, we will declare a class named CompositeEquipment which will act as the base class for equipment that contains other equipment. In addition, we can also use the composite pattern to keep track of the stats of the player. 
+Composite: The composite design pattern is a structural design pattern that focuses on the composition of objects and classes. In this specific pattern, we can create a tree
+structure to represent hierarchies and it is made of four parts, component, leaf, composite, and client.
+We picked the Composite pattern because it allows us to combine groups of objects together. An issue that we could come across in our game is when we are trying to let the
+player know stats about their health and equipment, In our game, we will be using the composite pattern for the equipment and the different aspects of it. For example, we will
+declare a class named CompositeEquipment which will act as the base class for equipment that contains other equipment. In addition, we can also use the composite pattern to keep
+track of the stats of the player. 
 
-        Build: The build pattern is a creational pattern that creates independent complex objects using simpler objects and it is made up of the product, builder, concreteBuilder, and Director.
-        We picked the Build pattern because it simplifies the creation of large objects that can be created using different components. I anticipate that we will have issues when designing the multiple levels of our dungeon.  By using the builder pattern, it will simplify what is changed from level to level by adjusting variable values in the childs of the main dungeon level builder class; we could break down our dungeon levels to specific components like number of enemies/chests/room count/traps/etc with each level altering the values.
+Build: The build pattern is a creational pattern that creates independent complex objects using simpler objects and it is made up of the product, builder, concreteBuilder, and
+Director.
+We picked the Build pattern because it simplifies the creation of large objects that can be created using different components. I anticipate that we will have issues when
+designing the multiple levels of our dungeon.  By using the builder pattern, it will simplify what is changed from level to level by adjusting variable values in the childs of
+the main dungeon level builder class; we could break down our dungeon levels to specific components like number of enemies/chests/room count/traps/etc with each level altering
+the values.
 
 
 

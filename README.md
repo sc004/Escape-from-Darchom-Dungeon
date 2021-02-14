@@ -30,6 +30,7 @@ the values.
 
 
 ## Phase II
+![plot](Design Document.png)
  > In addition to completing the "Class Diagram" section below, you will need to 
  > * Set up your GitHub project board as a Kanban board for the project. It should have columns that map roughly to 
  >   * Backlog, TODO, In progress, In testing, Done

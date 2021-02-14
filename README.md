@@ -30,7 +30,7 @@ the values.
 
 
 ## Phase II
-![plot](Design Document.png)
+![alt text](https://github.com/cs100/final-project-bmorc001-jli283-schitt008/blob/master/Design%20Document.png)
  > In addition to completing the "Class Diagram" section below, you will need to 
  > * Set up your GitHub project board as a Kanban board for the project. It should have columns that map roughly to 
  >   * Backlog, TODO, In progress, In testing, Done

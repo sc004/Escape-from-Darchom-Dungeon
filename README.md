@@ -8,24 +8,22 @@ might reach the conclusion. This project also seems challenging, yet fun at the 
 Language: C++
 
 Github
+
 Hammer
 
 We will prompt the user with a few choices to choose from. Once the user decides what they would like to do, they will input their choice into the console. Based upon
 the user’s input, the program will output what will now happen to the user as well as any stats that they may need to make future decisions.
 
 Composite: The composite design pattern is a structural design pattern that focuses on the composition of objects and classes. In this specific pattern, we can create a tree
-structure to represent hierarchies and it is made of four parts, component, leaf, composite, and client.
-We picked the Composite pattern because it allows us to combine groups of objects together. An issue that we could come across in our game is when we are trying to let the
-player know stats about their health and equipment. In our game, we will be using the composite pattern for the equipment and the different aspects of it. For example, we will
-declare a class named CompositeEquipment which will act as the base class for equipment that contains other equipment. In addition, we can also use the composite pattern to keep
-track of the stats of the player. 
+structure to represent hierarchies and it is made of four parts, component, leaf, composite, and client. We picked the Composite pattern because it allows us to combine groups
+of objects together. An issue that we could come across in our game is when we are trying to create a dungeon composed of different levels. In our game, we will be declaring a
+class named Level which will act as a base class for the specific types of levels. It will simplify what is changed from level to level by adjusting variablevalues in the
+subclasses of the main dungeon class. The base class Level will have an aggregate relationship with the DungeonManager class that stores a pointer to a level. 
 
-Build: The build pattern is a creational pattern that creates independent complex objects using simpler objects and it is made up of the product, builder, concreteBuilder, and
-Director.
-We picked the Build pattern because it simplifies the creation of large objects that can be created using different components. We anticipate that we will have issues when
-designing the multiple levels of our dungeon.  By using the builder pattern, it will simplify what is changed from level to level by adjusting variable values in the childs of
-the main dungeon level builder class; we could break down our dungeon levels to specific components like number of enemies/chests/room count/traps/etc with each level altering
-the values.
+Abstract Factory: The abstract factory pattern is a creational pattern that creates a factory of related objects and it is made up of AbstractFactory, ConcreteFactory,
+AbstractProduct, ConcreteProduct, and the client. We picked this pattern because it allows us to efficiently create families of products. In our game, we will be using this 
+pattern to create different products of encounters the player could face, such as a enemy, trap, or item encounter. The abstract factory class simplifies the creation of each of
+the encounter abstract products and the implementation of the concrete products.
 
 
 

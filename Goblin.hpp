@@ -10,18 +10,19 @@ class Goblin : public Enemy {
         Item* weapon = nullptr;
         Item* loot = nullptr;
    public:
-        void useSlash (Player* p1){
-            p1->health -= 2;
-        }
-        void useStab(Player* p1) {
-            p1->health -= 5;
-        }
-        ~Goblin();
         Goblin(int hp, int attack, int defense, int speed, int weakness, std::string n, Item* w, Item* l) :
             Enemy(hp, attack, defense, speed, weakness, n) {
                 weapon = w;
                 loot = l;
-            }
+         }
+	~Goblin();
+         void useSlash (Player* p1){
+            p1->health -= 3*get_attack();
+        }
+        void useStab(Player* p1) {
+            p1->health -= 5*get_attack();
+        }
+
         virtual void enemyAttk(Player* p1) {
             srand(time(0));
             int val = rand() % 2 + 1;

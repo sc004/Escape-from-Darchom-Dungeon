@@ -8,21 +8,21 @@
 class Wizard : public Enemy {
     private:
         Item* loot = nullptr;
-    public:
-        void useFireball(Player* p1){
-            p1->health -= 7;
-        }
-        void useLightning(Player* p1) {
-            p1->health -= 5;
-        }
-        void useMagicMissle(Player* p1) {
-            p1->health -= 4;
-        }
-   	~Wizard(); 
+    public: 
         Wizard(int hp, int attack, int defense, int speed, int weakness, std::string n, Item* l) :
             Enemy(hp, attack, defense, speed, weakness, n) {
                 loot = l;
             }
+	~Wizard();
+	void useFireball(Player* p1){
+            p1->health -= 9*get_attack();
+        }
+        void useLightning(Player* p1) {
+            p1->health -= 7*get_attack();
+        }
+        void useMagicMissle(Player* p1) {
+            p1->health -= 5*get_attack();
+        }
         virtual void enemyAttk(Player* p1) {
             srand(time(0));
             int val = rand() % 3 + 1;

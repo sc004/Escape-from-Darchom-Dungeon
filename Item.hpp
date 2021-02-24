@@ -12,6 +12,7 @@ class Item {
             itemID = id;
             name = n;
         }
+	~Item();
         int get_itemID() {
             return itemID;
         }

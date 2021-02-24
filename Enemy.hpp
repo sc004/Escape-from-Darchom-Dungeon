@@ -23,6 +23,7 @@ class Enemy {
             weakness = _weakness;
             name = _name;
         }
+	~Enemy();
         virtual void enemyAttk(Player* p1) = 0;
         int get_hp() {return hp;}
         int get_attack() {return attack;}

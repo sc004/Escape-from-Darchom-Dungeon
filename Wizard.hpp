@@ -18,7 +18,7 @@ class Wizard : public Enemy {
         void useMagicMissle(Player* p1) {
             p1->health -= 4;
         }
-    
+   	~Wizard(); 
         Wizard(int hp, int attack, int defense, int speed, int weakness, std::string n, Item* l) :
             Enemy(hp, attack, defense, speed, weakness, n) {
                 loot = l;

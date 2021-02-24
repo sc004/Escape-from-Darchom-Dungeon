@@ -16,7 +16,7 @@ class Troll : public Enemy {
         void useSlam(Player* p1) {
             p1->health -= 1;
         }
-    
+   	~Troll(); 
         Troll(int hp, int attack, int defense, int speed, int weakness, std::string n, Item* w, Item* l) :
             Enemy(hp, attack, defense, speed, weakness, n) {
                 weapon = w;

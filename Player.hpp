@@ -17,6 +17,7 @@ class Player {
             defense = 7; 
             speed = 3;
         }
+	~Player();
 	int get_health() {return health;}
 };
 

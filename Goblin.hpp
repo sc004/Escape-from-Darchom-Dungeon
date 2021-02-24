@@ -16,7 +16,7 @@ class Goblin : public Enemy {
         void useStab(Player* p1) {
             p1->health -= 5;
         }
-    
+        ~Goblin();
         Goblin(int hp, int attack, int defense, int speed, int weakness, std::string n, Item* w, Item* l) :
             Enemy(hp, attack, defense, speed, weakness, n) {
                 weapon = w;

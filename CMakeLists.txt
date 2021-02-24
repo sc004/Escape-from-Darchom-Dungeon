@@ -5,10 +5,17 @@ SET(CMAKE_CXX_STANDARD 11)
 
 ADD_SUBDIRECTORY(googletest)
 
+ADD_EXECUTABLE(WeaponTest
+	weaponTest.cpp
+)
+
 ADD_EXECUTABLE(EnemyTest
 	EnemyTest.cpp
 )
 
+TARGET_LINK_LIBRARIES(WeaponTest gtest)
+TARGET_COMPILE_DEFINITIONS(WeaponTest PRIVATE gtest_disable_pthreads=ON)
 
 TARGET_LINK_LIBRARIES(EnemyTest gtest)
 TARGET_COMPILE_DEFINITIONS(EnemyTest PRIVATE gtest_disable_pthreads=ON)
+

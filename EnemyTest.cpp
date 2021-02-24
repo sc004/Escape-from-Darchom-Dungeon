@@ -25,7 +25,7 @@ TEST(GoblinTest, useSlash) {
         Goblin* g = new Goblin(7, 2, 3, 5, 1, "goblin", w, l);
 	Player* p1 = new Player();
 	g->useSlash(p1);
-	EXPECT_EQ(p1->get_health(), 8);
+	EXPECT_EQ(p1->get_health(), 114);
 }
 
 TEST(GoblinTest, useStab) {
@@ -34,7 +34,7 @@ TEST(GoblinTest, useStab) {
         Goblin* g = new Goblin(7, 2, 3, 5, 1, "goblin", w, l);
         Player* p1 = new Player();
         g->useStab(p1);
-        EXPECT_EQ(p1->get_health(), 5);
+        EXPECT_EQ(p1->get_health(), 110);
 }
 
 TEST(TrollTest, Constructor) {
@@ -55,7 +55,7 @@ TEST(TrollTest, useSwipe) {
         Troll* t = new Troll(7, 2, 3, 5, 1, "troll", w, l);
         Player* p1 = new Player();
         t->useSwipe(p1);
-        EXPECT_EQ(p1->get_health(), 8);
+        EXPECT_EQ(p1->get_health(), 110);
 }
 
 TEST(TrollTest, useSlam) {
@@ -64,7 +64,7 @@ TEST(TrollTest, useSlam) {
         Troll* t = new Troll(7, 2, 3, 5, 1, "troll", w, l);
         Player* p1 = new Player();
         t->useSlam(p1);
-        EXPECT_EQ(p1->get_health(), 9);
+        EXPECT_EQ(p1->get_health(), 114);
 }
 
 
@@ -84,7 +84,7 @@ TEST(WizardTest, useFireball) {
          Wizard* w = new Wizard(7, 2, 3, 5, 1, "wizard", wp);
         Player* p1 = new Player();
         w->useFireball(p1);
-        EXPECT_EQ(p1->get_health(), 3);
+        EXPECT_EQ(p1->get_health(), 102);
 }
 
 TEST(WizardTest, useLightning) {
@@ -92,7 +92,7 @@ TEST(WizardTest, useLightning) {
        	Wizard* w = new Wizard(7, 2, 3, 5, 1, "wizard", wp);
         Player* p1 = new Player();
         w->useLightning(p1);
-        EXPECT_EQ(p1->get_health(), 5);
+        EXPECT_EQ(p1->get_health(), 106);
 }
 
 TEST(WizardTest, useMagicMissile) {
@@ -100,7 +100,7 @@ TEST(WizardTest, useMagicMissile) {
 	Wizard* w = new Wizard(7, 2, 3, 5, 1, "wizard", wp);
 	Player* p1 = new Player();
 	w->useMagicMissle(p1);
-	EXPECT_EQ(p1->get_health(), 6);
+	EXPECT_EQ(p1->get_health(), 110);
 }
 
 

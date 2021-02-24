@@ -1,3 +1,6 @@
+#ifndef SPIKE_H
+#define SPIKE_H
+
 #include <cmath>
 #include "player.h"
 #include "item.h"
@@ -8,17 +11,20 @@ class Spike_Trap: public Trap{
 	private:
 		int damage;
 	public:
-		Spike_Trap(int statusC): Trap(StatusC){
+		Spike_Trap(int statusC): Trap(statusC){
 			damage = 60;
 		}
 		~Spike_Trap();
-		virtual void attempDisarm(Player*){
+		virtual void attemptDisarm(Player* p1){
 			int chance = rand() % 100 + 1;
 			if(chance < 50){
-				Player->health -= damage;
-				Player->status = this->getStatus();
+				p1->health -= damage;
+				p1->status = getStatus();
+				p1->Add_Item(getItem());
 			}else{
-				Player->Add_Items(this->getItem());
+				p1->Add_Item(getItem());
 			}
 		}
-};	
+};
+
+#endif	

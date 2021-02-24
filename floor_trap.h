@@ -1,3 +1,6 @@
+
+#ifndef FLOOR_H
+#define FLOOR_H
 #include <cmath>
 #include "trap.h"
 #include "player.h"
@@ -14,15 +17,18 @@ class Floor_Trap: public Trap {
 		damage = 50;
 	}
 	~Floor_Trap();
-	void attemptDisarm(Player*){
+	void attemptDisarm(Player* p1){
 		int check = rand() % 100 + 1;
 		
 		if(check < 50){
-			Player->health -= damage;
-			Player->status = this->getStatus();A
+			p1->health -= damage;
+			p1->status = getStatus();
+			p1->Add_Item(getItem());
 		}else {
-			Player->Add_Item(this->getItem());
+			p1->Add_Item(getItem());
 		}		
 	}
 
 };
+
+#endif

@@ -1,3 +1,6 @@
+#ifndef DART_H
+#define DART_H
+
 #include <cmath>
 #include "player.h"
 #include "trap.h" //dunno if this is needed
@@ -12,13 +15,15 @@ class Dart_Trap : public Trap{
 			damage = 25;
 		}
 		~Dart_Trap();
-		void attemptDisarm(Player*){
+		void attemptDisarm(Player* p1){
 			int chance = rand() % 100 + 1;
 			if(chance < 50){
-				Player->status = this->getStatus();
-				Player->health -= damage;
+				p1->health -= damage;
+				p1->Add_Item(getItem());
 			}else{
-				Player->Add_Item(this->getItem());
+				p1->Add_Item(getItem());
 			}
 		}
 };
+
+#endif

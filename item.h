@@ -7,10 +7,10 @@
 using namespace std;
 class item{
 	private:
-		int itemID=0;
-		string name="CHANGE";
+		int itemID;
+		string name;
 	public:
-		item();
+		item(int id, string n){itemID = id; name = n;}
 		~item();
 		int get_itemID(){
 			return itemID;

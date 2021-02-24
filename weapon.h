@@ -12,7 +12,10 @@ class weapon : public item{
 		int timesUsed;
 		int durability;
 	public:
-		weapon();
+		weapon(int i, string n, int aP, int d) : item(i, n){
+			advPoints = aP;
+			durability = d;
+			}
 		~weapon();
 		int get_advPoints(){
 			return advPoints;
@@ -22,6 +25,10 @@ class weapon : public item{
 		}
 		int get_durability(){
 			return durability;
+		}
+		void increase_timesUsed(){
+			timesUsed++;
+			durability --;
 		}
 
 };

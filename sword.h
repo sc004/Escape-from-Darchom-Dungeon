@@ -10,12 +10,9 @@ class sword : public weapon{
 	private:
 		int attack;
 	public:
-		sword(int id, int dur, string n, int atk){
-			this->itemID = id;
-			this->durability = dur;
-			this->name = n;
+		sword(int id, string n, int dur, int atk): weapon(id, n, 1, dur){
 			attack = atk;
-			this->advPoints = 1;//advantage vs goblin
+			//1 = advantage vs goblin
 		}
 		~sword();
 		int get_attack(){

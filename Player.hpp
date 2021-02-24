@@ -12,7 +12,7 @@ class Player {
         int defense; 
         int speed;
         Player() {
-            health = 10;
+            health = 120;
             attack = 5;
             defense = 7; 
             speed = 3;

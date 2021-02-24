@@ -12,11 +12,12 @@ class Player {
         int defense; 
         int speed;
         Player() {
-            int health = 10;
-            int attack = 5;
-            int defense = 7; 
-            int speed = 3;
+            health = 10;
+            attack = 5;
+            defense = 7; 
+            speed = 3;
         }
+	int get_health() {return health;}
 };
 
 #endif //__PLAYER_HPP__

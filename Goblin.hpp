@@ -9,14 +9,14 @@ class Goblin : public Enemy {
     private:
         Item* weapon = nullptr;
         Item* loot = nullptr;
-
+   public:
         void useSlash (Player* p1){
             p1->health -= 2;
         }
         void useStab(Player* p1) {
             p1->health -= 5;
         }
-    public:
+    
         Goblin(int hp, int attack, int defense, int speed, int weakness, std::string n, Item* w, Item* l) :
             Enemy(hp, attack, defense, speed, weakness, n) {
                 weapon = w;

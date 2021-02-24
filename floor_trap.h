@@ -10,7 +10,7 @@ class Floor_Trap: public Trap {
 	int damage;
 
 	public:
-	Floor_Trap(int statusC: Trap(statusC)){
+	Floor_Trap(int statusC): Trap(statusC){
 		damage = 50;
 	}
 	~Floor_Trap();

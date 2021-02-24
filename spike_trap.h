@@ -8,8 +8,8 @@ class Spike_Trap: public Trap{
 	private:
 		int damage;
 	public:
-		Spike_Trap(int statusC){
-			statusCaused = statusC;
+		Spike_Trap(int statusC): Trap(StatusC){
+			damage = 60;
 		}
 		~Spike_Trap();
 		virtual void attempDisarm(Player*){

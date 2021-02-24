@@ -8,8 +8,8 @@ class Dart_Trap : public Trap{
 	private:
 		int damage;
 	public:
-		Dart_Trap(int StatusC){
-			statusCaused = statusC;
+		Dart_Trap(int StatusC): Trap(StatusC){
+			damage = 25;
 		}
 		~Dart_Trap();
 		void attemptDisarm(Player*){

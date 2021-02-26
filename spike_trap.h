@@ -18,10 +18,12 @@ class Spike_Trap: public Trap{
 		virtual void attemptDisarm(Player* p1){
 			int chance = rand() % 100 + 1;
 			if(chance < 50){
+				cout << "Spike Trap was not successfully disarmed. You took damage and are not bleeding" << endl;
 				p1->health -= damage;
 				p1->status = getStatus();
 				p1->Add_Item(getItem());
 			}else{
+				cout << "Spike Trap was successfully disarmed" <<endl;
 				p1->Add_Item(getItem());
 			}
 		}

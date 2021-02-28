@@ -18,12 +18,14 @@ class Player {
         Player() {
        		health = 100;
         	attack = 5;
-        	defense = 7; 
+        	defense = 10; 
         	speed = 3;
         }
 	void Add_Item(item* b){
 		gotItem = true;
 	}
+	void get_health() {return health;}
+	void get_defense() {return defense;}
 };
 
 #endif //__PLAYER_HPP__

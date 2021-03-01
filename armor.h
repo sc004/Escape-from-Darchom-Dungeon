@@ -2,7 +2,7 @@
 #define ARMOR_H
 #include <iostream>
 #include "item.h"
-#include "Player.hpp"
+#include "player.h"
 
 class Armor : public item {
     private:

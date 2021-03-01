@@ -24,8 +24,9 @@ class Player {
 	void Add_Item(item* b){
 		gotItem = true;
 	}
-	void get_health() {return health;}
-	void get_defense() {return defense;}
+	int get_health() {return health;}
+	int get_defense() {return defense;}
+	int get_speed() {return speed;}
 };
 
 #endif //__PLAYER_HPP__

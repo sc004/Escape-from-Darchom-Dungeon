@@ -13,9 +13,16 @@ ADD_EXECUTABLE(EnemyTest
 	EnemyTest.cpp
 )
 
+ADD_EXECUTABLE(ArmorTest
+	armorTest.cpp
+)
+
 TARGET_LINK_LIBRARIES(WeaponTest gtest)
 TARGET_COMPILE_DEFINITIONS(WeaponTest PRIVATE gtest_disable_pthreads=ON)
 
 TARGET_LINK_LIBRARIES(EnemyTest gtest)
 TARGET_COMPILE_DEFINITIONS(EnemyTest PRIVATE gtest_disable_pthreads=ON)
+
+TARGET_LINK_LIBRARIES(ArmorTest gtest)
+TARGET_COMPILE_DEFINITIONS(ArmorTest PRIVATE gtest_disable_pthreads=ON)
 

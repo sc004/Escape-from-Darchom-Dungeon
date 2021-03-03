@@ -10,7 +10,8 @@ class IncreaseSpeed : public Potion{
       IncreaseSpeed(int i, std::string n) : Potion(i, n) {}
         ~IncreaseSpeed();
         virtual void increaseStats(Player* p1) {
-                p1->speed *= 2;
+               p1->speed *= 2;
+               cout<< "Your speed has doubled!"<<endl;
         }
 };
 

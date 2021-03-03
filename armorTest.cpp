@@ -72,6 +72,15 @@ TEST(GreavesTest, IncreaseStats) {
         EXPECT_EQ(p1->get_defense(), 12);
 }
 
+TEST(GreavesTest, isEquiped) {
+        Greaves* g = new Greaves(3, "Greaves", 2);
+        Player* p1 = new Player();
+        g->increaseStats(p1);
+	g->set_isEquiped(true);
+        EXPECT_EQ(g->get_isEquiped(), true);
+}
+
+
 int main(int argc, char **argv) {
   ::testing::InitGoogleTest(&argc, argv);
   return RUN_ALL_TESTS();

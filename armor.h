@@ -7,6 +7,7 @@
 class Armor : public item {
     private:
 	int defense;
+	bool isEquiped = false;
     public:
 	Armor(int i, std::string n, int d) : item(i, n) {
 		defense = d;
@@ -14,6 +15,10 @@ class Armor : public item {
 	~Armor();
 	int get_defense() {
 		return defense;
+	}
+	bool get_isEquiped() { return isEquiped;}
+	void set_isEquiped(bool equip) {
+		isEquiped = equip;
 	}
 	virtual void increaseStats(Player* p1) = 0;
 };	

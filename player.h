@@ -4,15 +4,18 @@
 #include "item.h"
 #include "Enemy.hpp"
 #include <iostream>
+#include <vector>
+
+using namespace std;
 
 class Player {
     private:
 	int health;
 	int attack;
-	Item* currentWeapon;
+	item* currentWeapon;
 	int defense;
 	int speed;
-	int <Item*> inventory;
+	vector <item*> inventory;
 	int status;
 	bool blocking;
 	int maxHealth;
@@ -25,8 +28,8 @@ class Player {
 		speed = 50;
 		maxHealth = health;
 	}
-	attack(Enemy* e){
-		int health = enemy->get_hp();
+	void attack(Enemy* e){
+		int health = e->get_hp();
 		if(this->currentWeapon->get_advPoints() == e->get_weakness()){
 			cout << "A Critical hit!" << endl;
 			cout << "You dealt " << to_string(attack*2) << "damage to " << e->get_name() << "!\n";	
@@ -38,15 +41,15 @@ class Player {
 			e->set_hp(health);
 		}
 	}
-	void AddItems(Item* i){
+	void AddItems(item* i){
 		inventory.push_back(i);
 	}
-	void UseItems(Item* i){
-		if(i->get_ItemID() >=5 && item->get_itemID() <=7){
+	void UseItems(item* i){
+		if(i->get_itemID() >=5 && i->get_itemID() <=7){
 			i->increaseStats(this);
 			i->set_isEquipped = true;
 			cout << i->get_name() << " has been equipped" << endl;
-		}else if(i->get_ItemID() <= 10 && i->get_ItemID() >= 8){
+		}else if(i->get_itemID() <= 10 && i->get_itemID() >= 8){
 			i->increaseStats(this);
 			for(int k = 0; k < inventory.size(); k++){
                         	if(i == inventory.at(k)){
@@ -56,11 +59,11 @@ class Player {
 		
 		}
 	}
-	void equipWeapon(Item* i){
+	void equipWeapon(item* i){
 		currentWeapon = i;
 		attack += i->get_attack();
 	}
-	void unequipWeapon(Item* i){
+	void unequipWeapon(item* i){
 		attack -= i->get_attack();
 		currentWeapon = nullptr;
 	}

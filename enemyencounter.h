@@ -3,6 +3,14 @@
 
 #include <iostream>
 #include <string>
+#include "itemgenerate.h"
+#include "Enemy.hpp"
+#include "Goblin.hpp"
+#include "Troll.hpp"
+#include "Wizard.hpp"
+#include "Player.hpp"
+#include "knife.h"
+#include "club.h"
 
 using namespace std;
 class EnemyEncounter : public Encounter{

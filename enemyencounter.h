@@ -158,15 +158,15 @@ class EnemyEncounter : public Encounter{
 			 
 			 if(mtype ==1){
 				 
-				 mob = new Goblin(50, 10, 10, 50,1, gName[name], new Knife(), lootG->makeItem());
+				 mob = new Goblin(50, 10, 10, 50,1, gName[name], new Knife(), lootG->makeItem(itemType));
 			 }
 			 else if(mtype ==2){
 				 
-				 mob = new Troll(50, 10, 10, 50,1, tName[name], new Club(), lootG->makeItem());
+				 mob = new Troll(50, 10, 10, 50,1, tName[name], new Club(), lootG->makeItem(itemType));
 			 }
 			 else if(mtype ==3){
 				 
-				 mob = new Wizard(50, 10, 10, 50,1, wName[name], lootG->makeItem());
+				 mob = new Wizard(50, 10, 10, 50,1, wName[name], lootG->makeItem(itemType));
 			 }
 			 
 			 

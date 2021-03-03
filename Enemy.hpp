@@ -26,6 +26,7 @@ class Enemy {
 	~Enemy();
         virtual void enemyAttk(Player* p1) = 0;
         int get_hp() {return hp;}
+	int set_hp(int healt) {hp = healt;}
         int get_attack() {return attack;}
         int get_defense() {return defense;}
         int get_speed() {return speed;}

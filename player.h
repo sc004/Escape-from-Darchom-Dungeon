@@ -64,6 +64,9 @@ class Player {
 		attack -= i->get_attack();
 		currentWeapon = nullptr;
 	}
+	int get_health() {return health;}
+	int get_defense() {return defense;}
+	int get_speed() {return speed;}
 };
 
 #endif //__PLAYER_HPP__

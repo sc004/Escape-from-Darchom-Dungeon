@@ -3,7 +3,8 @@
 #include "encounter.h"
 #include "item.h"
 #include "player.h"
-#include "string"
+#include <string>
+#include <iostream>
 
 class ItemEncounter : public Encounter {
     private:

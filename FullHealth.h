@@ -4,14 +4,15 @@
 #include "potion.h"
 #include "player.h"
 #include "item.h"
-
+using namespace std;
 class FullHealth : public Potion{
    public:
       FullHealth(int i, std::string n) : Potion(i, n) {}
         ~FullHealth();
         virtual void increaseStats(Player* p1) {
-                if (p1->get_health() < 100) {
-                        p1->health = 100;
+                if (p1->get_health() < p1->maxHealth) {
+                        p1->health = p1->maxHealth;
+                        cout<< "You have been healed to full!"<<endl;
                 }
         }
 };

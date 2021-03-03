@@ -2,7 +2,7 @@
 #define __PLAYER_HPP__
 
 #include "item.h"
-
+#include "Enemy.hpp"
 #include <iostream>
 
 class Player {
@@ -64,9 +64,14 @@ class Player {
 		attack -= i->get_attack();
 		currentWeapon = nullptr;
 	}
+	int get_attack() {return attack;}
+	void set_attack(int a) {attack = a;}
 	int get_health() {return health;}
+	void set_health(int h) {health = h;}
 	int get_defense() {return defense;}
+	void set_defense(int d) {defense = d;}
 	int get_speed() {return speed;}
+	void set_speed(int s) {speed = s;}
 };
 
 #endif //__PLAYER_HPP__

@@ -10,9 +10,8 @@ class DoubleHealth : public Potion{
       DoubleHealth(int i, std::string n) : Potion(i, n) {}
         ~DoubleHealth();
         virtual void increaseStats(Player* p1) {
-                if (p1->get_health() < 100) {
+                        p1->maxHealth *=2;
                         p1->health *= 2;
-                }
         }
 };
 

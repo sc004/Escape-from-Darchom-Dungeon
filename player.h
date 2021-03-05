@@ -64,6 +64,17 @@ class Player {
 		attack -= i->get_attack();
 		currentWeapon = nullptr;
 	}
+	void displayInventory(){
+		int count = 1;
+		for(i = 0; i < inventory.size(); i++){
+			cout << to_string(count) << ") " <<  inventory.at(i)->get_name() << endl;
+			count++;
+		}	
+	}
+
+	void displayPlayerStats(){
+		cout << << "health: " to_string(health) << " " << "attack: " to_string(attack) << " " << "defense " to_string(defense) << "speed: " to_string(speed) << " " << "current status : " << to_string(status);
+	}
 };
 
 #endif //__PLAYER_HPP__

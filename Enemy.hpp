@@ -2,7 +2,7 @@
 #define __ENEMY_HPP__
 
 #include <iostream>
-#include "Player.hpp"
+#include "player.h"
 #include <cstdlib>
 #include <ctime>
 

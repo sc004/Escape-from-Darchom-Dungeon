@@ -11,6 +11,7 @@ using namespace std;
 class Player {
     private:
 	int health;
+	int maxHealth;
 	int attack;
 	item* currentWeapon;
 	int defense;
@@ -23,6 +24,7 @@ class Player {
     public:
        	Player(int health, int attack, int defense, int speed){
 		health = 100;
+		maxHealth = 110; // temp, change as needed
 		attack = 60;
 		defense = 50;
 		speed = 50;
@@ -71,6 +73,8 @@ class Player {
 	void set_attack(int a) {attack = a;}
 	int get_health() {return health;}
 	void set_health(int h) {health = h;}
+	int get_maxHealth() {return maxHealth;}
+	void set_maxHealth(int m) {maxHealth = m;}
 	int get_defense() {return defense;}
 	void set_defense(int d) {defense = d;}
 	int get_speed() {return speed;}

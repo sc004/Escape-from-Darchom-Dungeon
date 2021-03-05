@@ -22,12 +22,12 @@ class Floor_Trap: public Trap {
 		
 		if(check < 50){
 			cout << "You did not successfuly disarm the FloorTrap. You took damage and you are now crippled" << endl;
-			p1->health -= damage;
-			p1->status = getStatus();
-			p1->Add_Item(getItem());
+			p1->set_health(p1->get_health() - damage);
+			p1->get_status(getStatus());
+			p1->AddItems(getItem());
 		}else {
 			cout << "You successfully disarmed the FloorTrap. You got a potion!" << endl;
-			p1->Add_Item(getItem());
+			p1->AddItems(getItem());
 		}		
 	}
 

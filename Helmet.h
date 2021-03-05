@@ -13,7 +13,7 @@ class Helmet : public Armor{
         }
         ~Helmet();
         virtual void increaseStats(Player* p1) {
-                p1->defense += defense;
+                p1->set_defense(p1->get_defense() + defense);
         }
 };
 

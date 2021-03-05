@@ -10,8 +10,8 @@ class FullHealth : public Potion{
       FullHealth(int i, std::string n) : Potion(i, n) {}
         ~FullHealth();
         virtual void increaseStats(Player* p1) {
-                if (p1->get_health() < p1->maxHealth) {
-                        p1->health = p1->maxHealth;
+                if (p1->get_health() < p1->get_maxHealth()) {
+                        p1->set_health(p1->get_maxHealth());
                         cout<< "You have been healed to full!"<<endl;
                 }
         }

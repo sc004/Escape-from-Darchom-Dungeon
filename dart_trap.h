@@ -18,10 +18,10 @@ class Dart_Trap : public Trap{
 		void attemptDisarm(Player* p1){
 			int chance = rand() % 100 + 1;
 			if(chance < 50){
-				p1->health -= damage;
-				p1->Add_Item(getItem());
+				p1->set_health(p1->get_health() - damage);
+				p1->AddItems(getItem());
 			}else{
-				p1->Add_Item(getItem());
+				p1->AddItems(getItem());
 			}
 		}
 };

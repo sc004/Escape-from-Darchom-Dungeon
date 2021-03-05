@@ -3,25 +3,25 @@
 
 #include <iostream>
 #include "Enemy.hpp"
-#include "Item.hpp"
+#include "item.h"
 
 class Wizard : public Enemy {
     private:
-        Item* loot = nullptr;
+        item* loot = nullptr;
     public: 
-        Wizard(int hp, int attack, int defense, int speed, int weakness, std::string n, Item* l) :
+        Wizard(int hp, int attack, int defense, int speed, int weakness, std::string n, item* l) :
             Enemy(hp, attack, defense, speed, weakness, n) {
                 loot = l;
             }
 	~Wizard();
 	void useFireball(Player* p1){
-            p1->health -= 9*get_attack();
+            p1->set_health(p1->get_health() - (9*get_attack()));
         }
         void useLightning(Player* p1) {
-            p1->health -= 7*get_attack();
+            p1->set_health(p1->get_health() - (7*get_attack()));
         }
         void useMagicMissle(Player* p1) {
-            p1->health -= 5*get_attack();
+            p1->set_health(p1->get_health() - (5*get_attack()));
         }
         virtual void enemyAttk(Player* p1) {
             srand(time(0));
@@ -37,7 +37,7 @@ class Wizard : public Enemy {
             }
         }
 
-        Item* get_loot() {return loot;}
+        item* get_loot() {return loot;}
 
 };
 

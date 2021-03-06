@@ -11,9 +11,6 @@ class Knife : public weapon{
 		Knife(): weapon(99, "Knife", 0, 10){
 
 		}
-		~shield();
-		int get_defense(){
-			return defense;
-		}
+		~Knife();
 };
 #endif //KNIFE_H

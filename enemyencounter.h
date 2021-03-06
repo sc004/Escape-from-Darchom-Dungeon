@@ -162,11 +162,11 @@ class EnemyEncounter : public Encounter{
 			 }
 			 else if(mtype ==2){
 				 
-				 mob = new Troll(50, 10, 10, 50,1, tName[name], new Club(), lootG->makeItem(itemType));
+				 mob = new Troll(50, 10, 10, 50,2, tName[name], new Club(), lootG->makeItem(itemType));
 			 }
 			 else if(mtype ==3){
 				 
-				 mob = new Wizard(50, 10, 10, 50,1, wName[name], lootG->makeItem(itemType));
+				 mob = new Wizard(50, 10, 10, 50,3, wName[name], lootG->makeItem(itemType));
 			 }
 			 
 			 

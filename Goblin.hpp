@@ -4,6 +4,7 @@
 #include <iostream>
 #include "Enemy.hpp"
 #include "item.h"
+#include "player.h"
 
 class Goblin : public Enemy {
     private:

@@ -44,7 +44,7 @@ class ItemGenerate {
 				return new shield(id, iName + "Shield", 2*type, 10*type);
 			}
 			else if(id==4){
-				return new bow(id, iName + "Bow", 2*type, 10*type);
+				return new bow(id, iName + "Bow", 5*type, 21*type);
 			}
 			/*armors*/
 			else if(id==5){

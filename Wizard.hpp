@@ -30,13 +30,13 @@ class Wizard : public Enemy {
             srand(time(0));
             int val = rand() % 3 + 1;
             if (val == 0) {
-                return useFireball(p1);
+                return useFireball(pHP, pDef);
             }
             else if (val == 1) {
-                return useLightning(p1);
+                return useLightning(pHP, pDef);
             }
             else {
-                return useMagicMissle(p1);
+                return useMagicMissle(pHP, pDef);
             }
         }
 

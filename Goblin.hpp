@@ -18,10 +18,12 @@ class Goblin : public Enemy {
          }
 	~Goblin();
          void useSlash (Player* p1){
-            p1->set_health(p1->get_health() - (3*get_attack()));
+		int damage = (int)((3*get_attack())/(p1->get_defense()+1))+1;
+            	p1->set_health(p1->get_health() - damage);
         }
         void useStab(Player* p1) {
-            p1->set_health(p1->get_health() - (5*get_attack()));
+            	int damage = (int)((5*get_attack())/(p1->get_defense()+1))+1;
+            	p1->set_health(p1->get_health() - damage);
         }
         virtual void enemyAttk(Player* p1) {
             srand(time(0));

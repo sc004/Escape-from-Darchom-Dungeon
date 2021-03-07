@@ -34,7 +34,7 @@ class dungeonManager{
 				}
 			}
 		}
-		void getLevels(int level){
+		int getLevels(){
 			return levelCount;
 		}
 		void virtual buildLevels() = 0;

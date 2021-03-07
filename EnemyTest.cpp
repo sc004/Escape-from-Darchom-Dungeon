@@ -99,7 +99,7 @@ TEST(WizardTest, useMagicMissile) {
 	item* wp = new item(12, "weapon");
 	Wizard* w = new Wizard(7, 2, 3, 5, 1, "wizard", wp);
 	Player* p1 = new Player(100, 60, 50, 50);
-	p1->set_health(g->useMagicMissle(p1->get_health(), p1->get_defense()));
+	p1->set_health(w->useMagicMissle(p1->get_health(), p1->get_defense()));
 	EXPECT_EQ(p1->get_health(), 90);
 }
 

@@ -16,12 +16,12 @@ class Player {
 	item* currentWeapon;
 	int defense;
 	int speed;
-	vector<item*> inventory;
 	int status;
 	bool blocking;
 	int maxHealth;
         
     public:
+	vector <item* > inventory;
        	Player(int health, int attack, int defense, int speed){
 		health = 100;
 		_attack = 60;

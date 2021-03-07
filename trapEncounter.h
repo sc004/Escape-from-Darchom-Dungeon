@@ -1,5 +1,5 @@
 #ifndef TRAP_ENCOUNTER_H
-#define TRPA_ENCOUNTER_H
+#define TRAP_ENCOUNTER_H
 
 #include "encounter.h"
 #include "trap.h"

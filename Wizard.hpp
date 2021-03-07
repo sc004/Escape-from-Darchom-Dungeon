@@ -15,13 +15,16 @@ class Wizard : public Enemy {
             }
 	~Wizard();
 	void useFireball(Player* p1){
-            p1->set_health(p1->get_health() - (9*get_attack()));
+            	int damage = (int)((9*get_attack())/((p1->get_defense())/2+1))+1;
+            	p1->set_health(p1->get_health() - damage);
         }
         void useLightning(Player* p1) {
-            p1->set_health(p1->get_health() - (7*get_attack()));
+            	int damage = (int)((7*get_attack())/((p1->get_defense())/2+1))+1;
+            	p1->set_health(p1->get_health() - damage);
         }
         void useMagicMissle(Player* p1) {
-            p1->set_health(p1->get_health() - (5*get_attack()));
+            	int damage = (int)((5*get_attack())/((p1->get_defense())/2+1))+1;
+            	p1->set_health(p1->get_health() - damage);
         }
         virtual void enemyAttk(Player* p1) {
             srand(time(0));

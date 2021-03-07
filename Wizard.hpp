@@ -14,29 +14,29 @@ class Wizard : public Enemy {
                 loot = l;
             }
 	~Wizard();
-	void useFireball(Player* p1){
-            	int damage = (int)((9*get_attack())/((p1->get_defense())/2+1))+1;
-            	p1->set_health(p1->get_health() - damage);
+	int useFireball(int pHP, int pDef){
+            	int damage = (int)((9*get_attack())/(pDef/2+1))+1;
+            	return pHP - damage;
         }
-        void useLightning(Player* p1) {
-            	int damage = (int)((7*get_attack())/((p1->get_defense())/2+1))+1;
-            	p1->set_health(p1->get_health() - damage);
+        int useLightning(int pHP, int pDef) {
+            	int damage = (int)((7*get_attack())/(pDef/2+1))+1;
+            	return pHP - damage;
         }
-        void useMagicMissle(Player* p1) {
-            	int damage = (int)((5*get_attack())/((p1->get_defense())/2+1))+1;
-            	p1->set_health(p1->get_health() - damage);
+        int useMagicMissle(int pHP, int pDef) {
+            	int damage = (int)((5*get_attack())/(pDef/2+1))+1;
+            	return pHP - damage;
         }
-        virtual void enemyAttk(Player* p1) {
+        virtual int enemyAttk(int pHP, int pDef) {
             srand(time(0));
             int val = rand() % 3 + 1;
             if (val == 0) {
-                useFireball(p1);
+                return useFireball(p1);
             }
             else if (val == 1) {
-                useLightning(p1);
+                return useLightning(p1);
             }
             else {
-                useMagicMissle(p1);
+                return useMagicMissle(p1);
             }
         }
 

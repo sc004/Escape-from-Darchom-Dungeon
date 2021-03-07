@@ -22,7 +22,7 @@ class Player {
         
     public:
 	vector<item*> inventory;
-       	Player(int health, int attack, int defense, int speed){
+       	Player(int h, int a, int d, int s){
 		health = 100;
 		_attack = 60;
 		defense = 50;

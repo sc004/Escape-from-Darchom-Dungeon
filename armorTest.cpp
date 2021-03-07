@@ -56,7 +56,7 @@ TEST(HelmetTest, IncreaseStats) {
 	int _attack;
         Player* p1 = new Player(health,_attack,defense,speed);
         h->increaseStats(p1);
-        EXPECT_EQ(p1->get_defense(), 14);
+        EXPECT_EQ(p1->get_defense(), 54);
 }
 
 TEST(GreavesTest, getDefense) {
@@ -82,7 +82,7 @@ TEST(GreavesTest, IncreaseStats) {
 	int _attack;
         Player* p1 = new Player(health, _attack, defense, speed);
         g->increaseStats(p1);
-        EXPECT_EQ(p1->get_defense(), 12);
+        EXPECT_EQ(p1->get_defense(), 52);
 }
 
 TEST(GreavesTest, isEquiped) {

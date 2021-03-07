@@ -33,11 +33,11 @@ class Player {
 		int health = e->get_hp();
 		if(this->currentWeapon->get_advPoints() == e->get_weakness()){
 			cout << "A Critical hit!" << endl;
-			cout << "You dealt " << to_string(_attack*2) << "damage to " << e->get_name() << "!\n";	
+			cout << "You dealt " << to_string(_attack*2) << " damage to " << e->get_name() << "!\n";	
 			health -= (this->_attack*2);
 			e->set_hp(health);
 		}else{
-			cout << "You dealt " << _attack << "damage to " << e->get_name() << "!\n";
+			cout << "You dealt " << _attack << " damage to " << e->get_name() << "!\n";
 			health -= (this->_attack);
 			e->set_hp(health);
 		}
@@ -65,8 +65,13 @@ class Player {
 		_attack += i->get_attack();
 	}
 	void unequipWeapon(item* i){
+		if(currentWeapon == nullptr){
+			cout << "You are currently not holding a weapon" << endl;
+			item* currentWeapon = nullptr;
+		}else{
 		_attack -= i->get_attack();
 		currentWeapon = nullptr;
+		}
 	}
 	int get_attack() {return _attack;}
 	void set_attack(int a) {_attack = a;}

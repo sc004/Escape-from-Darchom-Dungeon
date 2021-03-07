@@ -94,7 +94,7 @@ TEST(PlayerTest, attackEnemyAdvantage){
 	sword* s = new sword(1,"Sword",34,20);
 	p1->AddItems(s);
 	p1->equipWeapon(s);
-	int hp = 140;
+	int hp = 200;
 	int attack1 = 40;
 	int defense1 = 20;
 	int speed1 = 60;
@@ -104,7 +104,7 @@ TEST(PlayerTest, attackEnemyAdvantage){
 	item* pot = new FullHealth(9, "FullHealth");
 	Goblin* e = new Goblin(hp,attack1,defense1,speed1,weakness,name,k,pot);
 	p1->attack(e);
-	EXPECT_EQ(e->get_hp(),20);
+	EXPECT_EQ(e->get_hp(),40);
 }
 
 TEST(PlayerTest, attackEnemyNoAdvantage){
@@ -144,6 +144,29 @@ TEST(PlayerTest, testEquipWeapon){
 	EXPECT_EQ(p1->get_attack(),81);
 }
 
+TEST(PlayerTest, testEquipMultipleWeapons){
+	int health;
+	int attack;
+	int defense;
+	int speed = 0;
+	Player* p1 = new Player(health, attack, defense, speed);
+	int id = 1;
+	string n = "Base Sword";
+	int dur = 10;
+	int atk = 20;
+	sword* s = new sword(id,n,dur,atk);
+	p1->equipWeapon(s);
+	p1->unequipWeapon(s);
+	int id2 = 4;
+	string n2 = "Base Bow";
+	int dur2 = 5;
+	int atk2 = 21;
+	bow* b = new bow(id2,n2,dur2,atk2);
+	p1->equipWeapon(b);
+	EXPECT_EQ(p1->get_attack(),81);
+	
+}
+
 TEST(PlayerTest, testUnequipWeapon){
         int health = 0;
         int attack = 0;
@@ -155,6 +178,7 @@ TEST(PlayerTest, testUnequipWeapon){
         int dur = 5;
         int atk = 21;
         bow* b = new bow(id,n,dur,atk);
+	p1->equipWeapon(b);
         p1->unequipWeapon(b);
         EXPECT_EQ(p1->get_attack(),60);
 }

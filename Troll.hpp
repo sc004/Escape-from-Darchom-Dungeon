@@ -16,22 +16,22 @@ class Troll : public Enemy {
                 loot = l;
             }
 	~Troll();
-	void useSwipe(Player* p1){
-            	int damage = (int)((3*get_attack())/(p1->get_defense()+1))+1;
-            	p1->set_health(p1->get_health() - damage);
+	int useSwipe(int pHP, int pDef){
+            	int damage = (int)((5*get_attack())/(pDef+1))+1;
+            	return pHP - damage;
         }
-        void useSlam(Player* p1) {
-            	int damage = (int)((5*get_attack())/(p1->get_defense()+1))+1;
-            	p1->set_health(p1->get_health() - damage);
+        int useSlam(int pHP, int pDef) {
+            	int damage = (int)((5*get_attack())/(pDef+1))+1;
+            	return pHP - damage;
         }
-        virtual void enemyAttk(Player* p1) {
+        virtual int enemyAttk(int pHP, int pDef) {
             srand(time(0));
             int val = rand() % 2 + 1;
             if (val == 0) {
-                useSwipe(p1);
+                return useSwipe(p1);
             }
             else {
-                useSlam(p1);
+                return useSlam(p1);
             }
         }
         item* get_weapon() {return weapon;}

@@ -1,6 +1,7 @@
 
 #ifndef LEVEL_A
 #define LEVEL_A
+#include "level.h"
 
 using namespace std;
 

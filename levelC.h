@@ -1,5 +1,6 @@
 #ifndef LEVEL_C
 #define LEVEL_C
+#include "level.h"
 
 using namespace std;
 

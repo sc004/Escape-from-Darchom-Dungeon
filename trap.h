@@ -14,7 +14,7 @@ class Trap{
 	public:
 		Trap(int statusC){
 			statusCaused = statusC;
-			pot = new Potion(1,"kekPotion");
+			pot = new Potion(1,"Potion");
 		}
 		~Trap();
 		Potion* getItem(){

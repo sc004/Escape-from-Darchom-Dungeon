@@ -21,10 +21,14 @@ TEST(ChestPlateTest, getName) {
 }
 
 TEST(ChestPlateTest, IncreaseStats) {
-        ChestPlate* c = new ChestPlate(1, "ChestPlate", 3);
-	Player* p1 = new Player();
+        ChestPlate* c = new ChestPlate(5, "ChestPlate", 3);
+	int health;
+	int speed;
+	int defense;
+	int _attack;
+	Player* p1 = new Player(health,_attack,defense,speed);
 	c->increaseStats(p1);
-                EXPECT_EQ(p1->get_defense(), 13);
+                EXPECT_EQ(p1->get_defense(), 53);
 }
 
 TEST(HelmetTest, getDefense) {
@@ -45,7 +49,11 @@ TEST(HelmetTest, getName) {
 
 TEST(HelmetTest, IncreaseStats) {
         Helmet* h = new Helmet(2, "helmet", 4);
-        Player* p1 = new Player();
+	int health;
+	int speed;
+	int defense;
+	int _attack;
+        Player* p1 = new Player(health,_attack,defense,speed);
         h->increaseStats(p1);
         EXPECT_EQ(p1->get_defense(), 14);
 }
@@ -67,14 +75,22 @@ TEST(GreavesTest, getName) {
 
 TEST(GreavesTest, IncreaseStats) {
         Greaves* g = new Greaves(3, "Greaves", 2);
-        Player* p1 = new Player();
+	int health;
+	int speed;
+	int defense;
+	int _attack;
+        Player* p1 = new Player(health, _attack, defense, speed);
         g->increaseStats(p1);
         EXPECT_EQ(p1->get_defense(), 12);
 }
 
 TEST(GreavesTest, isEquiped) {
         Greaves* g = new Greaves(3, "Greaves", 2);
-        Player* p1 = new Player();
+	int health;
+	int speed;
+	int defense;
+	int _attack;
+        Player* p1 = new Player(health, _attack, defense, speed);
         g->increaseStats(p1);
 	g->set_isEquiped(true);
         EXPECT_EQ(g->get_isEquiped(), true);

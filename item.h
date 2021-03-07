@@ -5,6 +5,8 @@
 #include <string>
 #include "Player.hpp"
 using namespace std;
+
+class Player;
 class item{
 	private:
 		int itemID;
@@ -31,5 +33,7 @@ class item{
 		virtual void increase_timesUsed(){}
 		virtual int get_attack(){return 0;}
 		
+	
+
 };
 #endif //ITEM_H

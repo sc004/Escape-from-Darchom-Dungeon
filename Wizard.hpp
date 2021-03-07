@@ -3,41 +3,44 @@
 
 #include <iostream>
 #include "Enemy.hpp"
-#include "Item.hpp"
+#include "item.h"
 
 class Wizard : public Enemy {
     private:
-        Item* loot = nullptr;
+        item* loot = nullptr;
     public: 
-        Wizard(int hp, int attack, int defense, int speed, int weakness, std::string n, Item* l) :
+        Wizard(int hp, int attack, int defense, int speed, int weakness, std::string n, item* l) :
             Enemy(hp, attack, defense, speed, weakness, n) {
                 loot = l;
             }
 	~Wizard();
-	void useFireball(Player* p1){
-            p1->health -= 9*get_attack();
+	int useFireball(int pHP, int pDef){
+            	int damage = (int)((9*get_attack())/(pDef/2+1))+1;
+            	return pHP - damage;
         }
-        void useLightning(Player* p1) {
-            p1->health -= 7*get_attack();
+        int useLightning(int pHP, int pDef) {
+            	int damage = (int)((7*get_attack())/(pDef/2+1))+1;
+            	return pHP - damage;
         }
-        void useMagicMissle(Player* p1) {
-            p1->health -= 5*get_attack();
+        int useMagicMissle(int pHP, int pDef) {
+            	int damage = (int)((5*get_attack())/(pDef/2+1))+1;
+            	return pHP - damage;
         }
-        virtual void enemyAttk(Player* p1) {
+        virtual int enemyAttk(int pHP, int pDef) {
             srand(time(0));
             int val = rand() % 3 + 1;
             if (val == 0) {
-                useFireball(p1);
+                return useFireball(pHP, pDef);
             }
             else if (val == 1) {
-                useLightning(p1);
+                return useLightning(pHP, pDef);
             }
             else {
-                useMagicMissle(p1);
+                return useMagicMissle(pHP, pDef);
             }
         }
 
-        Item* get_loot() {return loot;}
+        item* get_loot() {return loot;}
 
 };
 

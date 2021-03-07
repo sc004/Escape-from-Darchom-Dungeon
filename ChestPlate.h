@@ -13,7 +13,9 @@ class ChestPlate : public Armor{
 	}
 	~ChestPlate();
 	virtual void increaseStats(Player* p1) {
-		p1->defense += defense;
+		int playerD = p1->get_defense();
+		playerD += defense;
+		p1->set_defense(playerD);
 	}
 };
 

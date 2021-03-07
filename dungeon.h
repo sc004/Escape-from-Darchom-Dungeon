@@ -1,7 +1,14 @@
 #ifndef __DUNGEON_H__
 #define __DUNGEON_H__
+#include <iostream>
+#include <string>
+
 
 #include "player.h"
+#include "levelA.h"
+#include "levelB.h"
+#include "levelC.h"
+
 
 using namespace std;
 
@@ -9,9 +16,21 @@ using namespace std;
 		public:
 		Dungeon(int L){
 			currentLevel = L;
+			buildLevels();
 		}
 		void buildLevels(){
-			
+			for (int i=0;i<getLevels();i++){//does this for each level
+				int type = rand() % 30 + 1;
+				if(type <=10){
+					this->levels.pushback(new LevelA());
+				}
+				else if(type > 10 && type <=20){
+					this->levels.pushback(new LevelB());
+				}
+				else{
+					this->levels.pushback(new LevelC());
+				}
+			}
 		}
 		void generatePlayer(){
 			int attack;

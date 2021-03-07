@@ -6,7 +6,7 @@
 using namespace std;
 
 class dungeonManager{
-	private:
+	protected:
 		int levelCount;
 		vector<Level*> levels;
 	public:

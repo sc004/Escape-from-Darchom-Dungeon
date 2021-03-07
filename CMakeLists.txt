@@ -26,6 +26,10 @@ ADD_EXECUTABLE(PotionTest
 	PotionTest.cpp
 )
 
+ADD_EXECUTABLE(PlayerTest
+	playerTest.cpp
+)
+
 TARGET_LINK_LIBRARIES(WeaponTest gtest)
 TARGET_COMPILE_DEFINITIONS(WeaponTest PRIVATE gtest_disable_pthreads=ON)
 

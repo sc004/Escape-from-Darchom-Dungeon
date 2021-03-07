@@ -1,3 +1,4 @@
+
 #include "trap.h"
 #include "player.h" //<- let's pretend that's there
 #include "spike_trap.h"

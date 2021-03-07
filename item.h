@@ -18,6 +18,7 @@ class item{
 		string get_name(){
 			return name;
 		}
+		
 
 };
 #endif //ITEM_H

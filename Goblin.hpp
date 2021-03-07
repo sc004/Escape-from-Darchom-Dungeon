@@ -4,7 +4,7 @@
 #include <iostream>
 #include "Enemy.hpp"
 #include "item.h"
-#include "player.h"
+
 
 class Goblin : public Enemy {
     private:
@@ -17,22 +17,22 @@ class Goblin : public Enemy {
                 loot = l;
          }
 	~Goblin();
-         void useSlash (Player* p1){
-		int damage = (int)((3*get_attack())/(p1->get_defense()+1))+1;
-            	p1->set_health(p1->get_health() - damage);
+        int useSlash (int pHP, int pDef){
+		int damage = (int)((3*get_attack())/(pDef+1))+1;
+            	return pHP - damage;
         }
-        void useStab(Player* p1) {
-            	int damage = (int)((5*get_attack())/(p1->get_defense()+1))+1;
-            	p1->set_health(p1->get_health() - damage);
+        int useStab(int pHP, int pDef) {
+            	int damage = (int)((5*get_attack())/(pDef+1))+1;
+            	return pHP - damage;
         }
-        virtual void enemyAttk(Player* p1) {
+        virtual int enemyAttk(int pHP, int pDef) {
             srand(time(0));
             int val = rand() % 2 + 1;
             if (val == 0) {
-                useSlash(p1);
+                return useSlash(p1);
             }
             else {
-                useStab(p1);
+                return useStab(p1);
             }
         }
         item* get_weapon() {return weapon;}

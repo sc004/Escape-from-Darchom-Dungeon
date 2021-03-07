@@ -2,6 +2,7 @@
 #define __PLAYER_HPP__
 
 #include "item.h"
+#include "armor.h"
 #include "Enemy.hpp"
 #include <iostream>
 #include <vector>
@@ -15,7 +16,7 @@ class Player {
 	item* currentWeapon;
 	int defense;
 	int speed;
-	vector <item*> inventory;
+	vector<item*> inventory;
 	int status;
 	bool blocking;
 	int maxHealth;
@@ -47,7 +48,7 @@ class Player {
 	void UseItems(item* i){
 		if(i->get_itemID() >=5 && i->get_itemID() <=7){
 			i->increaseStats(this);
-			i->set_isEquipped = true;
+			i->set_isEquipped(true);
 			cout << i->get_name() << " has been equipped" << endl;
 		}else if(i->get_itemID() <= 10 && i->get_itemID() >= 8){
 			i->increaseStats(this);

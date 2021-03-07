@@ -3,8 +3,10 @@
 
 #include <iostream>
 #include <string>
-#include "player.h"
+
 using namespace std;
+
+class Player;
 class item{
 	private:
 		int itemID;

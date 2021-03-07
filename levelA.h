@@ -13,15 +13,15 @@ class LevelA: public Level{
 			for(i = 0; i < 5; i++){
 				int rand = (rand() % 3) + 1;
 				if(rand == 1){
-					Factory* enemy = new EnemyFactory();
+					EncounterFactory* enemy = new EnemyEncounterFactory();
 					encounters.push_back(enemy->makeEncounter());
 				}
 				if(rand == 2){
-					Factory* trap = new TrapFactory();
+					EncounterFactory* trap = new TrapEncounterFactory();
 					encounters.push_back(trap->makeEncounter());
 				}
 				if(rand == 3){
-					Factory* item = new ItemFactory();
+					EncounterFactory* item = new ItemEncounterFactory();
 					encounters.push_back(item->makeEncounter());
 				
 				}	

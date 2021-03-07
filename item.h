@@ -3,7 +3,7 @@
 
 #include <iostream>
 #include <string>
-
+#include "player.h"
 using namespace std;
 class item{
 	private:
@@ -30,7 +30,6 @@ class item{
 		virtual int get_durability(){return 0;}
 		virtual void increase_timesUsed(){}
 		virtual int get_attack(){return 0;}
-		virtual int get_defense(){return 0;}
 		
 	
 };

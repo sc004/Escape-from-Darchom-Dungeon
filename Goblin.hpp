@@ -29,10 +29,10 @@ class Goblin : public Enemy {
             srand(time(0));
             int val = rand() % 2 + 1;
             if (val == 0) {
-                return useSlash(p1);
+                return useSlash(pHP, pDef);
             }
             else {
-                return useStab(p1);
+                return useStab(pHP, pDef);
             }
         }
         item* get_weapon() {return weapon;}

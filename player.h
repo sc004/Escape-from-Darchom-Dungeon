@@ -10,8 +10,8 @@ using namespace std;
 
 class Player {
     private:
-	int health;
-	int attack;
+	int health;	
+	int _attack;
 	item* currentWeapon;
 	int defense;
 	int speed;
@@ -23,7 +23,7 @@ class Player {
     public:
        	Player(int health, int attack, int defense, int speed){
 		health = 100;
-		attack = 60;
+		_attack = 60;
 		defense = 50;
 		speed = 50;
 		maxHealth = health;
@@ -32,12 +32,12 @@ class Player {
 		int health = e->get_hp();
 		if(this->currentWeapon->get_advPoints() == e->get_weakness()){
 			cout << "A Critical hit!" << endl;
-			cout << "You dealt " << to_string(attack*2) << "damage to " << e->get_name() << "!\n";	
-			health -= (this->attack*2);
+			cout << "You dealt " << to_string(_attack*2) << "damage to " << e->get_name() << "!\n";	
+			health -= (this->_attack*2);
 			e->set_hp(health);
 		}else{
-			cout << "You dealt " << attack << "damage to " << e->get_name() << "!\n";
-			health -= (this->attack);
+			cout << "You dealt " << _attack << "damage to " << e->get_name() << "!\n";
+			health -= (this->_attack);
 			e->set_hp(health);
 		}
 	}
@@ -61,16 +61,18 @@ class Player {
 	}
 	void equipWeapon(item* i){
 		currentWeapon = i;
-		attack += i->get_attack();
+		_attack += i->get_attack();
 	}
 	void unequipWeapon(item* i){
-		attack -= i->get_attack();
+		_attack -= i->get_attack();
 		currentWeapon = nullptr;
 	}
-	int get_attack() {return attack;}
-	void set_attack(int a) {attack = a;}
+	int get_attack() {return _attack;}
+	void set_attack(int a) {_attack = a;}
 	int get_health() {return health;}
 	void set_health(int h) {health = h;}
+	int get_maxHealth() {return maxHealth;}
+	void set_maxHealth(int m) {maxHealth = m;}
 	int get_defense() {return defense;}
 	void set_defense(int d) {defense = d;}
 	int get_speed() {return speed;}

@@ -18,17 +18,9 @@ TEST(DoubleHealthTest, getName) {
 
 TEST(DoubleHealthTest, IncreaseStats) {
         DoubleHealth* h = new DoubleHealth(1, "DoubleHealth");
-	Player* p1 = new Player();
-	p1->health = 50;
+	Player* p1 = new Player(100, 60, 50, 50);
 	h->increaseStats(p1);
-        EXPECT_EQ(p1->get_health(), 100);
-}
-
-TEST(DoubleHealthTest, NoIncreaseStats) {
-        DoubleHealth* h = new DoubleHealth(1, "DoubleHealth");
-        Player* p1 = new Player();
-        h->increaseStats(p1);
-        EXPECT_EQ(p1->get_health(), 100);
+        EXPECT_EQ(p1->get_health(), 200);
 }
 
 TEST(FullHealthTest, getID) {
@@ -44,15 +36,15 @@ TEST(FullHealthTest, getName) {
 
 TEST(FullHealthTest, IncreaseStats) {
         FullHealth* h = new FullHealth(2, "FullHealth");
-        Player* p1 = new Player();
-        p1->health = 60;
+        Player* p1 = new Player(100, 60, 50, 50);
+        p1->set_health(60);
         h->increaseStats(p1);
         EXPECT_EQ(p1->get_health(), 100);
 }
 
 TEST(FullHealthTest, NoIncreaseStats) {
         FullHealth* h = new FullHealth(2, "FullHealth");
-        Player* p1 = new Player();
+        Player* p1 = new Player(100, 60, 50, 50);
         h->increaseStats(p1);
         EXPECT_EQ(p1->get_health(), 100);
 }
@@ -70,9 +62,9 @@ TEST(IncreaseSpeedTest, getName) {
 
 TEST(IncreaseSpeedTest, IncreaseStats) {
         IncreaseSpeed* h = new IncreaseSpeed(3, "IncreaseSpeed");
-        Player* p1 = new Player();
+        Player* p1 = new Player(100, 60, 50, 50);
         h->increaseStats(p1);
-        EXPECT_EQ(p1->get_speed(), 5);
+        EXPECT_EQ(p1->get_speed(), 100);
 }
 
 

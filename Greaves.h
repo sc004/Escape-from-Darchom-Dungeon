@@ -12,8 +12,10 @@ class Greaves : public Armor{
                 defense =  d;
         }
         ~Greaves(); 
-     virtual void increaseStats(Player* p1) {
-                p1->defense += defense;
+     	virtual void increaseStats(Player* p1) {
+                int playerD = p1->get_defense();
+                playerD += defense;
+		          p1->set_defense(playerD);
         }
 };
 

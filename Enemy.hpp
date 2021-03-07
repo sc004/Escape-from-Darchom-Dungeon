@@ -2,9 +2,9 @@
 #define __ENEMY_HPP__
 
 #include <iostream>
-#include "Player.hpp"
 #include <cstdlib>
 #include <ctime>
+#include "player.h"
 
 class Enemy {
     private:

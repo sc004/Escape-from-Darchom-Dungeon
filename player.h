@@ -2,7 +2,7 @@
 #define __PLAYER_HPP__
 
 #include "item.h"
-#include "armor.h"
+//#include "armor.h"
 #include "Enemy.hpp"
 #include <iostream>
 #include <vector>
@@ -21,7 +21,7 @@ class Player {
 	int maxHealth;
         
     public:
-	vector <item* > inventory;
+	vector<item*> inventory;
        	Player(int health, int attack, int defense, int speed){
 		health = 100;
 		_attack = 60;
@@ -75,6 +75,7 @@ class Player {
 	int get_maxHealth() {return maxHealth;}
 	void set_maxHealth(int m) {maxHealth = m;}
 	int get_defense() {return defense;}
+
 	void set_defense(int d) {defense = d;}
 	int get_speed() {return speed;}
 	void set_speed(int s) {speed = s;}

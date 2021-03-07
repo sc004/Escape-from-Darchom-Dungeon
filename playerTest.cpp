@@ -20,7 +20,7 @@ TEST(PlayerTest, getHealth){
 	int defense = 0;
 	int speed = 0;
 	Player* p1 = new Player(health, attack, defense, speed);
-	EXPECT_EQ(p1->get_health(), "100");
+	EXPECT_EQ(p1->get_health(), 100);
 }
 
 TEST(PlayerTest, getDefense){
@@ -29,7 +29,7 @@ TEST(PlayerTest, getDefense){
         int defense = 0;
         int speed = 0;
         Player* p1 = new Player(health, attack, defense, speed);
-        EXPECT_EQ(p1->get_defense(),"50");
+        EXPECT_EQ(p1->get_defense(),50);
 }
 
 TEST(PlayerTest, getSpeed){
@@ -38,7 +38,7 @@ TEST(PlayerTest, getSpeed){
         int defense = 0;
         int speed = 0;
         Player* p1 = new Player(health, attack, defense, speed);
-        EXPECT_EQ(p1->get_speed(),"50");
+        EXPECT_EQ(p1->get_speed(),50);
 }
 
 TEST(PlayerTest, getAttack){
@@ -47,7 +47,7 @@ TEST(PlayerTest, getAttack){
         int defense = 0;
         int speed = 0;
         Player* p1 = new Player(health, attack, defense, speed);
-        EXPECT_EQ(p1->get_attack(),"60");
+        EXPECT_EQ(p1->get_attack(),60);
 }
 
 TEST(PlayerTest, addItemsPotion){
@@ -70,7 +70,8 @@ TEST(PlayerTest, additemsArmor){
 	Player* p1 = new Player(health, attack, defense, speed);
 	ChestPlate* test = new ChestPlate(5, "ChestPlate", 69);
 	p1->AddItems(test);
-	EXPECT_EQ(p1->inventory.at(0)->get_itemID(),5);	
+	item* tester = p1->inventory.at(0);
+	EXPECT_EQ(tester->get_itemID(),5);	
 }
 
 TEST(PlayerTest, useItemPotion){

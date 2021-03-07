@@ -5,6 +5,7 @@
 #include "Helmet.h"
 #include "Greaves.h"
 
+
 TEST(ChestPlateTest, getDefense) {
 	ChestPlate* c = new ChestPlate(1, "ChestPlate", 3);
 		EXPECT_EQ(c->get_defense(), 3);
@@ -22,10 +23,10 @@ TEST(ChestPlateTest, getName) {
 
 TEST(ChestPlateTest, IncreaseStats) {
         ChestPlate* c = new ChestPlate(5, "ChestPlate", 3);
-	int health;
-	int speed;
-	int defense;
-	int _attack;
+	int health=0;
+	int speed=0;
+	int defense=0;
+	int _attack=0;
 	Player* p1 = new Player(health,_attack,defense,speed);
 	c->increaseStats(p1);
                 EXPECT_EQ(p1->get_defense(), 53);

@@ -2,8 +2,6 @@
 #define CHESTPLACE_H
 #include <iostream>
 #include "armor.h"
-#include "player.h"
-
 class ChestPlate : public Armor{
    private:
 	int defense;

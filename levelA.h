@@ -8,6 +8,7 @@
 #include <iostream>
 #include <stdio.h>
 #include <stdlib.h>
+#include <ctime>
 #include <time.h>
 
 class LevelA: public Level{
@@ -19,9 +20,8 @@ class LevelA: public Level{
 			EncounterFactory* enemy = new EnemyEncounterFactory();
 			EncounterFactory* trap = new TrapEncounterFactory();
 			EncounterFactory* item = new ItemEncounterFactory();
+			//srand((unsigned) time(0));
 			for(int i = 0; i < 5; i++){
-				time_t t;
-				srand((unsigned) time(&t));
 				int a = (rand() % 3) + 1;
 				if(a == 1){
 					

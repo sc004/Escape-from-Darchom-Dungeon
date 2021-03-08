@@ -154,11 +154,10 @@ class EnemyEncounter : public Encounter{
 		}
 	public:
 		EnemyEncounter(int t): Encounter(t){
-			 srand(time(0));
 			 ItemGenerate* lootG = new ItemGenerate();
-			 int mtype = rand() % 3 + 1;
+			 int mtype = (rand() % 3) + 1;
 			 int name = rand() % 10;
-			 int itemType = rand() % 10 +1;
+			 int itemType = (rand() % 10) + 1;
 			 
 			 if(mtype ==1){
 				 

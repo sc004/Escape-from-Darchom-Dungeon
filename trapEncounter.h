@@ -7,6 +7,8 @@
 #include "spike_trap.h"
 #include "floor_trap.h"
 #include "dart_trap.h"
+#include <cstdlib>
+#include <ctime>
 #include <iostream>
 
 using namespace std;
@@ -15,6 +17,7 @@ class Trap_Encounter : public Encounter{
 		Trap* trapEncountered;
 		bool hasDisarmed;
 	public:
+
 		Trap_Encounter(int t): Encounter(t){
 			int generate = (rand() % 3) + 1;
 			

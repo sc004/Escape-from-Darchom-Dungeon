@@ -11,6 +11,9 @@
 #include "levelB.h"
 #include "levelC.h"
 #include <string>
+#include <stdio.h>
+#include <stdlib.h>
+#include <ctime>
 
 using namespace std;
 
@@ -21,6 +24,7 @@ using namespace std;
 			buildLevels();
 		}
 		void buildLevels(){
+				srand((unsigned) time(0));
 			for (int i=0;i<this->getLevels();i++){//does this for each level
 				int type = rand() % 30 + 1;
 				if(type <=10){

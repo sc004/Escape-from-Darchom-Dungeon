@@ -85,7 +85,9 @@ class Player {
 	}
 
 	void displayPlayerStats(){
-		cout << "health: " << to_string(health) << " " << "attack: " << to_string(_attack) << " " << "defense " << to_string(defense) << "speed: " << to_string(speed) << " " << "current status : " << to_string(status);
+		string cStatus;
+		 
+		cout << "HEALTH: " << to_string(health)  << ", ATTACK: " << to_string(_attack)  << ", DEFENSE " << to_string(defense) << ", SPEED: " << to_string(speed)  << ", CURRENT STATUS: " << endl;
 	}
 	int get_attack() {return _attack;}
 	void set_attack(int a) {_attack = a;}

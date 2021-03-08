@@ -38,6 +38,6 @@ class dungeonManager{
 			return levelCount;
 		}
 		void virtual buildLevels() = 0;
-}
+};
 
 #endif

@@ -14,7 +14,7 @@ using namespace std;
 
 	class dungeon : public dungeonManager {
 		public:
-		Dungeon(int L){
+		dungeon(int L){
 			currentLevel = L;
 			buildLevels();
 		}

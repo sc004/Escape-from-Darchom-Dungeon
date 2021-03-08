@@ -21,7 +21,7 @@ class Floor_Trap: public Trap {
 		int check = rand() % 100 + 1;
 		
 		if(check < 50){
-			cout << "You did not successfuly disarm the FloorTrap. You took damage and you are now crippled" << endl;
+			cout << "You did not successfuly disarm the FloorTrap. You took " << damage << " damage and you are now crippled" << endl;
 			p1->set_health(p1->get_health() - damage);
 			p1->set_status(getStatus());
 			p1->AddItems(getItem());

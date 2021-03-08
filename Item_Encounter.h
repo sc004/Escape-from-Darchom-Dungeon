@@ -16,6 +16,8 @@
 #include "spear.h"
 #include "bow.h"
 #include "shield.h"
+#include <cstdlib>
+#include <ctime>
 
 class ItemEncounter : public Encounter {
     private:
@@ -23,7 +25,6 @@ class ItemEncounter : public Encounter {
 	bool hasReceived = false;
     public:
       ItemEncounter(int i) : Encounter(i){
-	
 	int type = rand() % 3 + 1;
 	std::string prefix;
 	if (type == 1) { prefix = "Basic";}

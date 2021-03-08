@@ -6,6 +6,7 @@
 #include "enemyencounterfactory.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <ctime>
 #include <time.h>
 
 class LevelB: public Level{
@@ -17,9 +18,8 @@ class LevelB: public Level{
 			EncounterFactory* enemy = new EnemyEncounterFactory();
                         EncounterFactory* trap = new TrapEncounterFactory();
                         EncounterFactory* item = new ItemEncounterFactory();
+			//srand((unsigned) time(0));
                         for(int i = 0; i < 7; i++){
-                                time_t t;
-                                srand((unsigned) time(&t));
                                 int a = (rand() % 3) + 1;
 
                                 if(a == 1){

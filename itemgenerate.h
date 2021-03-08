@@ -13,6 +13,9 @@
 #include "spear.h"
 #include "bow.h"
 #include "shield.h"
+#include <cstdlib>
+#include <ctime>
+
 using namespace std;
 
 
@@ -22,6 +25,7 @@ class ItemGenerate {
 		~ItemGenerate(){}
 		
 		item* makeItem(int id){
+			//srand((unsigned) time(0));
 			int type = rand() % 3 + 1;
 			string iName;
 			if (type==1){

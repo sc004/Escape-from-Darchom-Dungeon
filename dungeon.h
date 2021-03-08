@@ -223,7 +223,7 @@ using namespace std;
 									else if(user->inventory.at(intResponse2-1)->get_itemID()==2){advantage = "versus trolls";}
 									else if(user->inventory.at(intResponse2-1)->get_itemID()==4){advantage = "versus wizards";}
 									cout<< "Name: " << user->inventory.at(intResponse2-1)->get_name()<<"\t Bonus: "<< advantage<<endl;
-									cout<< "Durability: "<< to_string(user->inventory.at(intResponse2-1)->get_durability());
+									cout<< "Durability: "<< to_string(user->inventory.at(intResponse2-1)->get_durability()) << endl;
 									cout<< "Would you like to wield this? y to equip, n to back out"<<endl;
 									cin>> response;
 									if(response != "y"&& response != "n"){

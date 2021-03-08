@@ -20,7 +20,7 @@ class Player {
 	int maxHealth;
         
     public:
-	item* currentWeapon;
+	item* currentWeapon=nullptr;
 	vector<item*> inventory;
        	Player(int h, int a, int d, int s){
 		health = 100;
@@ -31,16 +31,19 @@ class Player {
 	}
 	void attack(Enemy* e){
 		int health = e->get_hp();
-		if(this->currentWeapon->get_advPoints() == e->get_weakness()){
+		if(currentWeapon != nullptr){
+			if(this->currentWeapon->get_advPoints() == e->get_weakness()){
 			cout << "A Critical hit!" << endl;
 			cout << "You dealt " << to_string(_attack*2) << " damage to " << e->get_name() << "!\n";	
 			health -= (this->_attack*2);
 			e->set_hp(health);
-		}else{
-			cout << "You dealt " << _attack << " damage to " << e->get_name() << "!\n";
-			health -= (this->_attack);
-			e->set_hp(health);
+			}
 		}
+		else{
+                        cout << "You dealt " << _attack << " damage to " << e->get_name() << "!\n";
+                        health -= (this->_attack);
+                        e->set_hp(health);
+                }
 	}
 	void AddItems(item* i){
 		inventory.push_back(i);
@@ -100,6 +103,12 @@ class Player {
 	}
 	int get_status(){
 		return status;
+	}
+	void set_blocking(bool a){
+		blocking = a;
+	}
+	bool get_blocking(){
+		return blocking;
 	}
 };
 

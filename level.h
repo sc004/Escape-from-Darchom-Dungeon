@@ -7,12 +7,16 @@
 #include <vector>
 
 using namespace std;
+
 class Level{
 	protected:
 	vector<Encounter*> encounters;
 	string name;	
 	public:
-	Level();
-	~Level();
+	Level(){}
+	~Level(){}
+	vector<Encounter*> getEncounters(){
+		return encounters;
+	}
 };
 #endif //LEVEL_H

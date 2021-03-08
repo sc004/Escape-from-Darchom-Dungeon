@@ -1,6 +1,10 @@
 #include "dungeon.h"
 #include <iostream>
-
+#include "Item_Encounter.h"
+#include "encounter.h"
+#include "trapEncounter.h"
+#include "enemyencounter.h"
+#include "level.h"
 using namespace std;
 
 

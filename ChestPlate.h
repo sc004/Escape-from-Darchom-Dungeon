@@ -1,5 +1,5 @@
 #ifndef CHESTPLATE_H
-#define CHESTPLACE_H
+#define CHESTPLATE_H
 #include <iostream>
 #include "armor.h"
 class ChestPlate : public Armor{

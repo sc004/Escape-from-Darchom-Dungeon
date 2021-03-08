@@ -4,7 +4,7 @@
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
-
+class item;
 class Enemy {
     private:
         int hp;
@@ -31,6 +31,7 @@ class Enemy {
         int get_speed() {return speed;}
         int get_weakness() {return weakness;}
         std::string get_name() { return name;}
+	virtual item* get_loot()=0;
 };
 
 #endif // __ENEMY_HPP__

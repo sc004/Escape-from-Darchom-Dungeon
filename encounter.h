@@ -5,12 +5,13 @@
 #include <string>
 
 using namespace std;
+class Player;
 class Encounter{
 	private:
 		int type;
 	public:
 		Encounter(int t){type = t;}
-		~Encounter();
+		~Encounter(){}
 		int get_type(){
 			return type;
 		}

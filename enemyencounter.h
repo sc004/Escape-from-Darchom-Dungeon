@@ -11,6 +11,10 @@
 #include "Player.hpp"
 #include "knife.h"
 #include "club.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
 
 using namespace std;
 class EnemyEncounter : public Encounter{
@@ -28,35 +32,35 @@ class EnemyEncounter : public Encounter{
 			int intResponse1;
 			int intResponse2;
 			while(inMenue1){
-				cout << "Your HP:  " << to_string(p->get_hp()) << "\t"<< mob->get_name()<<"'s HP:  "<< to_string(mob->get_hp())<<endl;
+				cout << "Your HP:  " << to_string(p->get_health()) << "\t"<< mob->get_name()<<"'s HP:  "<< to_string(mob->get_hp())<<endl;
 				cout << "How would you like to proceed?\n" << "1 to attack, 2 to examine backpack."<<endl;
 				cin >> response;
 				try{
 					intResponse1 = stoi(response);
 				}
-				catch{
+				catch(int e){
 					cout << "Please input a valid argument!"<<endl;
 					continue;
 				}
-				if(intResponse1 != 1 || intResponse1 != 2){
+				if(intResponse1 != 1 && intResponse1 != 2){
 					cout << "Please select one of the two responses!"<<endl;
 					continue;
 				}
 				/*now we have a valid response*/
-				if(intResponse ==1){
+				if(intResponse1 ==1){
 					p->attack(mob);
 					inMenue1 = false;
 				}
-				else if(intResponse ==2){
+				else if(intResponse1 ==2){
 					inMenue2=true;
-					while(inMenu2){
-						p->display_Inventory();
+					while(inMenue2){
+						p->displayInventory();
 						cout << "Which item would you like to interact with?\n" << "Respond with its number or 0 to back out."<<endl;
 						cin >> response;
 						try{
 							intResponse2 = stoi(response);
 						}
-						catch{
+						catch(int e){
 							cout << "Please input a valid argument!"<<endl;
 							continue;
 						}
@@ -65,7 +69,7 @@ class EnemyEncounter : public Encounter{
 							continue;
 						}
 						if(intResponse2 ==0){
-							inMenu2 = false;
+							inMenue2 = false;
 							continue;
 						}
 						else{/*three cases to deal with; a weapon type, a potion, and armor
@@ -90,11 +94,11 @@ class EnemyEncounter : public Encounter{
 									}
 									else if(response=="y"){
 										if(p->inventory.at(intResponse2-1)->get_itemID()==3){
-											p->blocking = true;
+											p->set_blocking(true);
 											cout<< "The " << p->inventory.at(intResponse2-1)->get_name()<< " is ready to recieve a blow."<<endl;
 										}
 										else{
-											p->unequipWeapon(p->currentW);
+											p->unequipWeapon(p->currentWeapon);
 											p->equipWeapon(p->inventory.at(intResponse2-1));
 											cout<< "You are now wielding your " <<p->inventory.at(intResponse2-1)->get_name() <<".\n";
 										}
@@ -115,7 +119,7 @@ class EnemyEncounter : public Encounter{
 										cout << p->inventory.at(intResponse2-1)->get_name() <<" is not currently equipped.\nThere is nothing else you can do with this at this time."<<endl;
 									}
 									inMenue3=false;
-									continue
+									continue;
 								}
 								else{/*item is a potion*/
 									bool rCheck = false;
@@ -129,7 +133,7 @@ class EnemyEncounter : public Encounter{
 										else{rCheck = true;}
 									}
 									if (response == "y"){
-										p->UseItem(p->inventory.at(intResponse2-1));
+										p->UseItems(p->inventory.at(intResponse2-1));
 									}
 									/*if y wasnt selected, just back out*/
 									inMenue3=false;
@@ -143,9 +147,9 @@ class EnemyEncounter : public Encounter{
 			}
 		}
 		void enemyTurn(Player* p){
-			int prev_hp= p->get_hp();
-			mob->enemyAttk(p);
-			int hplost = prev_hp - p->get_hp();
+			int prev_hp= p->get_health();
+			p->set_health(mob->enemyAttk(prev_hp, p->get_defense()));
+			int hplost = prev_hp - p->get_health();
 			cout << mob->get_name()<<"'s attack dealt "<< to_string(hplost) <<" damage to you."<<endl;
 		}
 	public:
@@ -153,20 +157,20 @@ class EnemyEncounter : public Encounter{
 			 srand(time(0));
 			 ItemGenerate* lootG = new ItemGenerate();
 			 int mtype = rand() % 3 + 1;
-			 int name = rand() % gName.length();
+			 int name = rand() % 10;
 			 int itemType = rand() % 10 +1;
 			 
 			 if(mtype ==1){
 				 
-				 mob = new Goblin(50, 10, 10, 50,1, gName[name], new Knife(), lootG->makeItem(itemType));
+				 mob = new Goblin(50, 10, 10, 50,1, "Goblin "+gName[name], new Knife(), lootG->makeItem(itemType));
 			 }
 			 else if(mtype ==2){
 				 
-				 mob = new Troll(50, 10, 10, 50,2, tName[name], new Club(), lootG->makeItem(itemType));
+				 mob = new Troll(50, 10, 10, 50,2, "Troll "+tName[name], new Club(), lootG->makeItem(itemType));
 			 }
 			 else if(mtype ==3){
 				 
-				 mob = new Wizard(50, 10, 10, 50,3, wName[name], lootG->makeItem(itemType));
+				 mob = new Wizard(50, 10, 10, 50,3, "Wizard "+wName[name], lootG->makeItem(itemType));
 			 }
 			 
 			 
@@ -182,14 +186,16 @@ class EnemyEncounter : public Encounter{
 			if(mob->get_speed() > p->get_speed()){/*enemy stars first*/
 				cout << mob->get_name() << " is faster than you, so it strikes first!"<<endl;
 				while(!isOver){
-					enemyTurn();
-					if(p->get_hp()<=0){
+					enemyTurn(p);
+					if(p->get_health()<=0){
 						isOver=true;
 						continue;
 					}
 					playerTurn(p);
 					if(mob->get_hp()<=0){
-						isOver=true
+						isOver=true;
+						p->AddItems(mob->get_loot());
+						
 						continue;
 					}	
 				}
@@ -199,11 +205,12 @@ class EnemyEncounter : public Encounter{
 				while(!isOver){
 					playerTurn(p);
 					if(mob->get_hp()<=0){
-						isOver=true
+						p->AddItems(mob->get_loot());
+						isOver=true;
 						continue;
 					}
-					enemyTurn();
-					if(p->get_hp()<=0){
+					enemyTurn(p);
+					if(p->get_health()<=0){
 						isOver=true;
 						continue;
 					}

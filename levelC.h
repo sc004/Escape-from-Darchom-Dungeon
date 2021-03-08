@@ -4,6 +4,9 @@
 #include "trapencounterfactory.h"
 #include "itemencounterfactory.h"
 #include "enemyencounterfactory.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 
 class LevelC: public Level{
         private:
@@ -11,26 +14,32 @@ class LevelC: public Level{
 
         public:
                 LevelC(){
-                        for(i = 0; i < 10; i++){
-                                int rand = (rand() % 3) + 1;
-                                if(rand == 1){
-                                        EncounterFactory* enemy = new EnemyEncounterFactory();
+			EncounterFactory* enemy = new EnemyEncounterFactory();
+                        EncounterFactory* trap = new TrapEncounterFactory();
+                        EncounterFactory* item = new ItemEncounterFactory();
+                        for(int i = 0; i < 10; i++){
+                                
+				time_t t;
+                                srand((unsigned) time(&t));
+                                int a = (rand() % 3) + 1;
+                                if(a == 1){
+                                        
                                         encounters.push_back(enemy->makeEncounter());
                                 }
-                                if(rand == 2){
-                                        EncounterFactory* trap = new TrapEncounterFactory();
+                                if(a == 2){
+                                        
                                         encounters.push_back(trap->makeEncounter());
                                 }
-                                if(rand == 3){
-                                        EncounterFactory* item = new ItemEncounterFactory();
+                                if(a == 3){
+                                        
                                         encounters.push_back(item->makeEncounter());
 
                                 }
                         }
                         levelID = 3;
-                        delete[] enemy;
-                        delete[] trap;
-                        delete[] item;
+                        delete enemy;
+                        delete trap;
+                        delete item;
                 }
                 ~LevelC(){}
 };

@@ -16,8 +16,8 @@ class Armor : public item {
 	int get_defense() {
 		return defense;
 	}
-	bool get_isEquiped() { return isEquiped;}
-	void set_isEquiped(bool equip) {
+	virtual bool get_isEquiped() { return isEquiped;}
+	virtual void set_isEquiped(bool equip) {
 		isEquiped = equip;
 	}
 	virtual void increaseStats(Player* p1) = 0;

@@ -9,7 +9,7 @@ using namespace std;
 class EncounterFactory{
     public:
         EncounterFactory(){}
-        ~EncounterFactory();
+        ~EncounterFactory(){}
         virtual Encounter* makeEncounter() = 0;
 };
 #endif //ENCOUNTERFACTORY_H

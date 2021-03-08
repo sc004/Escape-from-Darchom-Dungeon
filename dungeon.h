@@ -169,7 +169,7 @@ using namespace std;
 						int intResponse2;
 						while(inMenue1){
 				
-							cout << "How would you like to proceed?\n" << "1 to move on, 2 to examine backpack."<<endl;
+							cout << "How would you like to proceed?\n" << "1 to move on, 2 to examine backpack, 3 to display player stats."<<endl;
 							cin >> response;
 							try{
 								intResponse1 = stoi(response);
@@ -178,13 +178,16 @@ using namespace std;
 							cout << "Please input a valid argument!"<<endl;
 							continue;
 							}
-							if(intResponse1 != 1 && intResponse1 != 2){
-							cout << "Please select one of the two responses!"<<endl;
+							if(intResponse1 != 1 && intResponse1 != 2 && intResponse1 != 3){
+							cout << "Please select one of the three responses!"<<endl;
 							continue;
 							}
 				/*now we have a valid response*/
 				if(intResponse1 ==1){
 					inMenue1 = false;
+				}
+				else if (intResponse1 == 3) {
+					user->displayPlayerStats();
 				}
 				else if(intResponse1 ==2){
 					inMenue2=true;

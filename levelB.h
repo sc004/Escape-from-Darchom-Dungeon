@@ -1,8 +1,9 @@
 #ifndef LEVEL_B
 #define LEVEL_B
 #include "level.h"
-
-using namespace std;
+#include "trapencounterfactory.h"
+#include "itemencounterfactory.h"
+#include "enemyencounterfactory.h"
 
 class LevelB: public Level{
         private:

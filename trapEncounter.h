@@ -4,7 +4,9 @@
 #include "encounter.h"
 #include "trap.h"
 #include "player.h"
-
+#include "spike_trap.h"
+#include "floor_trap.h"
+#include "dart_trap.h"
 
 class Trap_Encounter : public Encounter{
 	private:
@@ -49,5 +51,5 @@ class Trap_Encounter : public Encounter{
 			
 			}	
 
-
+};
 #endif

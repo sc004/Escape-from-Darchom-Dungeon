@@ -2,8 +2,10 @@
 #ifndef LEVEL_A
 #define LEVEL_A
 #include "level.h"
-
-using namespace std;
+#include "trapencounterfactory.h"
+#include "itemencounterfactory.h"
+#include "enemyencounterfactory.h"
+#include <iostream>
 
 class LevelA: public Level{
 	private:
@@ -34,3 +36,5 @@ class LevelA: public Level{
 		}
 		~LevelA(){}
 };
+
+#endif

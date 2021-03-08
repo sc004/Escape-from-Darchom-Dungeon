@@ -44,7 +44,7 @@ using namespace std;
 			bool isDone = false;
 			cout << "Please enter the player's stats in the order: health, attack, defense, speed" << endl;
 			while(!isDone){
-				cout << "Enter player health: (1 to 200) " << endl;
+				cout << "Enter the player health: (1 to 200)" << endl;
 				try{cin << health;
 				}
 				catch{
@@ -72,7 +72,7 @@ using namespace std;
 				try{cin << attack;
 				}
 				catch{
-					cout << Please input a valid argument!" << endl;
+					cout << "Please input a valid argument!" << endl;
 				}
 				if(attack < 0 || attack > 200){
 					cout << "Invalid attack stat entered. Try again" << endl;
@@ -122,8 +122,8 @@ using namespace std;
 					cout << "Please input a valid argument!" << endl;
 					continue;
 				}
-				if(speed < 0 || defense > 200){
-					cout << "Invalid defense stat entered. Try again" << endl;
+				if(speed < 0 || speed  > 200){
+					cout << "Invalid speed stat entered. Try again" << endl;
 					while(!invalidSpeed){
 						cout << "Enter speed stat: " << endl;
 						try{cin << speed;
@@ -140,8 +140,9 @@ using namespace std;
 					}
 				}
 			
-				user  = new Player(health,attack,defense,speed);
+				user  = new Player(health,attack,0,speed);
 			}
+		}
 			void explore(){
 				bool gameover = false;
 				while(!gameover){
@@ -294,15 +295,15 @@ using namespace std;
                                                                 cout << "You have survived floor "<< to_string(i+1)<<" and move onto the next";
                                	                }
 					}
+					gameover = true;
 					cout << "Congratulations, You have made it through all the floors of Darchom Dungeon!" << endl;
 				}
 				cout << "GAMEOVER!"<<endl;
 			}	
-		}
 		private:
 			int currentLevel;
 			Player* user;
-
+};
 
 #endif
 

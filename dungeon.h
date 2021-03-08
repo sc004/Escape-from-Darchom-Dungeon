@@ -142,6 +142,7 @@ using namespace std;
 			
 				user  = new Player(health,attack,0,speed);
 			}
+		}
 			void explore(){
 				bool gameover = false;
 				while(!gameover){
@@ -294,11 +295,11 @@ using namespace std;
                                                                 cout << "You have survived floor "<< to_string(i+1)<<" and move onto the next";
                                	                }
 					}
+					gameover = true;
 					cout << "Congratulations, You have made it through all the floors of Darchom Dungeon!" << endl;
 				}
 				cout << "GAMEOVER!"<<endl;
 			}	
-		}
 		private:
 			int currentLevel;
 			Player* user;

@@ -305,7 +305,7 @@ using namespace std;
 							break;
 						}
 						if(i+1<this->getLevels()){
-                                                                cout << "You have survived floor "<< to_string(i+1)<<" and move onto the next";
+                                                                cout << "You have survived floor "<< to_string(i+1)<<" and move onto the next" << endl;
                                	                }
 					}
 					if(!gameover){

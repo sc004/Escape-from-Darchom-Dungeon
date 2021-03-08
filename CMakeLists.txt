@@ -25,6 +25,10 @@ ADD_EXECUTABLE(PlayerTest
 	playerTest.cpp
 )
 
+ADD_EXECUTABLE(MainTest
+	main.cpp
+)
+
 TARGET_LINK_LIBRARIES(WeaponTest gtest)
 TARGET_COMPILE_DEFINITIONS(WeaponTest PRIVATE gtest_disable_pthreads=ON)
 

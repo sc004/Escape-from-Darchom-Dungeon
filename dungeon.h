@@ -115,14 +115,14 @@ using namespace std;
 						}
 					}
 				}*/
-				cout << "Enter player speed: " << endl;
+				cout << "Enter player speed: (1 to 200)" << endl;
 				try{cin >> speed;
 				}
 				catch(int e){
 					cout << "Please input a valid argument!" << endl;
 					continue;
 				}
-				if(speed < 0 || speed  > 200){
+				if(speed <= 0 || speed  > 200){
 					cout << "Invalid speed stat entered. Try again" << endl;
 					while(!validSpeed){
 						cout << "Enter speed stat: " << endl;

@@ -1,5 +1,5 @@
 #ifndef TRAP_ENCOUNTER_H
-#define TRPA_ENCOUNTER_H
+#define TRAP_ENCOUNTER_H
 
 #include "encounter.h"
 #include "trap.h"
@@ -25,7 +25,7 @@ class Trap_Encounter : public Encounter{
 			}
 		}
 		~Trap_Encounter(){}
-		void askToDisarm(Player* p){
+		void run(Player* p){
 			bool done = false;
 			char option;
 			cout << "Would you like to disarm the trap? 1 for yes, 2 for no" << endl;

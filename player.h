@@ -13,7 +13,6 @@ class Player {
     private:
 	int health;	
 	int _attack;
-	item* currentWeapon;
 	int defense;
 	int speed;
 	int status;
@@ -21,6 +20,7 @@ class Player {
 	int maxHealth;
         
     public:
+	item* currentWeapon;
 	vector<item*> inventory;
        	Player(int h, int a, int d, int s){
 		health = 100;

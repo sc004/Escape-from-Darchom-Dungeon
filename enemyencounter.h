@@ -175,7 +175,7 @@ class EnemyEncounter : public Encounter{
 			 delete lootG;
 		}
 		~EnemyEncounter();
-		void startBattle(Player* p){
+		void run(Player* p){
 			bool isOver = false;
 			cout << "You have encountered " << mob->get_name() <<".  It engages you in a fight.\n";
 			/*calculate who is faster to determine the turn order*/

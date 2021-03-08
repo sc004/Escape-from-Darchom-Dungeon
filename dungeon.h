@@ -72,7 +72,7 @@ using namespace std;
 				try{cin << attack;
 				}
 				catch{
-					cout << Please input a valid argument!" << endl;
+					cout << "Please input a valid argument!" << endl;
 				}
 				if(attack < 0 || attack > 200){
 					cout << "Invalid attack stat entered. Try again" << endl;

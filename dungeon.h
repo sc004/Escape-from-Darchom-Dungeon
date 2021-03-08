@@ -19,7 +19,7 @@ using namespace std;
 			buildLevels();
 		}
 		void buildLevels(){
-			for (int i=0;i<getLevels();i++){//does this for each level
+			for (int i=0;i<this->getLevels();i++){//does this for each level
 				int type = rand() % 30 + 1;
 				if(type <=10){
 					this->levels.pushback(new LevelA());
@@ -36,10 +36,10 @@ using namespace std;
 			int attack;
 			int health;
 			int speed;
-			int defense;
+			//int defense;
 			bool validHealth = false;
 			bool validAttack = false;
-			bool validDefense = false;
+			//bool validDefense = false;
 			bool validSpeed = false;
 			bool isDone = false;
 			cout << "Please enter the player's stats in the order: health, attack, defense, speed" << endl;
@@ -91,7 +91,7 @@ using namespace std;
 						}
 					}	
 				}
-				cout << "Enter player defense: " << endl;
+				/*cout << "Enter player defense: " << endl;
 				try{cin << defense;
 				}
 				catch{
@@ -114,7 +114,7 @@ using namespace std;
 							validDefense = true;
 						}
 					}
-				}
+				}*/
 				cout << "Enter player speed: " << endl;
 				try{cin << speed;
 				}
@@ -141,6 +141,28 @@ using namespace std;
 				}
 			
 				user  = new Player(health,attack,defense,speed);
+			}
+			void explore(){
+				bool gameover = false;
+				while(!gameover){
+					for(int i=0;i<this->getlevels();i++){
+						for(int j=0;j<levels.at(i)->encounters.size();j++){
+							levels.at(i)->encounters.at(j)->run(user);
+							if(user->get_health()<=0){
+								cout <<"You are dead....."<< endl;
+								gameover = true;
+							}
+							if(j+1<levels.at(i)->encounters.size()){
+								cout << "You move onto the next room..."<< endl;
+							}
+						}
+						if(i+1<this->getlevels()){
+                                                                cout << "You have survived floor "<< to_string(i+1)<<" and move onto the next";
+                               	                }
+					}
+					cout << "Congratulations, You have made it through all the floors of Darchom Dungeon!" << endl;
+				}
+				cout << "GAMEOVER!"<<endl;
 			}	
 		}
 		private:

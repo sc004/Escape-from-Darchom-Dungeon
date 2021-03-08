@@ -3,12 +3,12 @@
 #include <iostream>
 #include <string>
 
-
+#include "dungeonManager.h"
 #include "player.h"
 #include "levelA.h"
 #include "levelB.h"
 #include "levelC.h"
-
+#include <string>
 
 using namespace std;
 
@@ -51,7 +51,7 @@ using namespace std;
 					cout << "Please input a valid argument!" << endl;
 					continue;
 				}
-				if(health < 0 || health > 200){
+				if(health <= 0 || health > 200){
 					cout << "Invalid health stat entered. Try again" << endl;
 					while(!validHealth){
 						cout << "Enter player health: " << endl;

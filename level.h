@@ -4,11 +4,12 @@
 #include "encounter.h"
 #include <string>
 #include <iostream>
+#include <vector>
 
 using namespace std;
 class Level{
-	private:
-	int <Encounter*> encounters;
+	protected:
+	vector<Encounter*> encounters;
 	string name;	
 	public:
 	Level();

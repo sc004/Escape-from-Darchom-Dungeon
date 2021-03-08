@@ -52,7 +52,7 @@ class ItemEncounter : public Encounter {
         }
      } 
      ~ItemEncounter(){}
-     void askToPickUp(Player* p1) {
+     void run(Player* p1) {
 	std::char userIn;
 	bool done = false;
 	std::cout << "Would you like to pick up this item (" << itemEncountered->get_name() << ")? 1 for yes, 2 for no" << std::endl;

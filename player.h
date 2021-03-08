@@ -86,8 +86,12 @@ class Player {
 
 	void displayPlayerStats(){
 		string cStatus;
-		 
-		cout << "HEALTH: " << to_string(health)  << ", ATTACK: " << to_string(_attack)  << ", DEFENSE " << to_string(defense) << ", SPEED: " << to_string(speed)  << endl;
+		if (this->status ==  1) {cStatus = "bleeding";}
+		else if (this->status == 3) {cStatus = "poisoned";}
+		else if (this->status == 2) {cStatus = "crippled";}
+		else {cStatus = "normal";}
+		cout << "PLAYER STATS" << endl;
+		cout << "HEALTH: " << to_string(health)  << ", ATTACK: " << to_string(_attack)  << ", DEFENSE " << to_string(defense) << ", SPEED: " << to_string(speed)<<", CURRENT STATUS: " << cStatus  << endl;
 	}
 	int get_attack() {return _attack;}
 	void set_attack(int a) {_attack = a;}

@@ -5,6 +5,7 @@
 #include <string>
 #include "encounterfactory.h"
 #include "Item_Encounter.h"
+#include <iostream>
 
 using namespace std;
 class ItemEncounterFactory: public EncounterFactory{

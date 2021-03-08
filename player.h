@@ -75,14 +75,14 @@ class Player {
 	}
 	void displayInventory(){
 		int count = 1;
-		for(i = 0; i < inventory.size(); i++){
+		for(int i = 0; i < inventory.size(); i++){
 			cout << to_string(count) << ") " <<  inventory.at(i)->get_name() << endl;
 			count++;
 		}	
 	}
 
 	void displayPlayerStats(){
-		cout << << "health: " to_string(health) << " " << "attack: " to_string(attack) << " " << "defense " to_string(defense) << "speed: " to_string(speed) << " " << "current status : " << to_string(status);
+		cout << "health: " << to_string(health) << " " << "attack: " << to_string(_attack) << " " << "defense " << to_string(defense) << "speed: " << to_string(speed) << " " << "current status : " << to_string(status);
 	}
 	int get_attack() {return _attack;}
 	void set_attack(int a) {_attack = a;}
@@ -95,6 +95,12 @@ class Player {
 	void set_defense(int d) {defense = d;}
 	int get_speed() {return speed;}
 	void set_speed(int s) {speed = s;}
+	void set_status(int s){
+		status = s;
+	}
+	int get_status(){
+		return status;
+	}
 };
 
 #endif //__PLAYER_HPP__

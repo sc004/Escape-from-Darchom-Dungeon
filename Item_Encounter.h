@@ -8,7 +8,7 @@
 
 class ItemEncounter : public Encounter {
     private:
-	Item* itemEncountered;
+	item* itemEncountered;
 	bool hasReceived = false;
     public:
       ItemEncounter(int i) : Encounter(i){

@@ -17,9 +17,9 @@ class EnemyEncounter : public Encounter{
 	private:
 		int type;
 		Enemy* mob;
-		string gName[1] = {"Goblin1"};
-		string tName[1] = {"Troll1"};
-		string wName[1] = {"Merlin"};
+		string gName[10] = {"Wizz","Coibs","Trik","Grelk","Ild","Kreelkerd","Glelsaalb","Diazozz","Toinalx","Kigeazz"};
+		string tName[10] = {"Dorkuraz","Erodjan","Lakjin","Vulzal","Quivilt","Ayagi","Jaafan","Wonjin","Ttarmek","Rashi"};
+		string wName[10] = {"Amarim","Zomazz","Crekius","Axon","Adrufaris","Jabahn","Ilridalf","Drumorn","Uxius","Exium"};
 		void playerTurn(Player* p){
 			bool inMenue1 = true;
 			bool inMenue2 = false;

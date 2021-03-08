@@ -5,8 +5,9 @@
 #include <string>
 #include "encounterfactory.h"
 #include "trapEncounter.h"
-
+#include <iostream>
 using namespace std;
+
 class TrapEncounterFactory: public EncounterFactory{
 	public:
 		TrapEncounterFactory(){}

@@ -4,7 +4,7 @@
 #include "item.h"
 #include "potion.h"
 #include "player.h"
-
+#include "FullHealth.h"
 
 class Trap{
 	private:
@@ -14,7 +14,7 @@ class Trap{
 	public:
 		Trap(int statusC){
 			statusCaused = statusC;
-			pot = new Potion(1,"Potion");
+			pot  = new FullHealth(9, "FullHealth Potion");
 		}
 		~Trap();
 		Potion* getItem(){

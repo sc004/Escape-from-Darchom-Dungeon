@@ -5,6 +5,17 @@
 #include "player.h"
 #include <string>
 #include <iostream>
+//item includes
+#include "DoubleHealth.h"
+#include "FullHealth.h"
+#include "IncreaseSpeed.h"
+#include "ChestPlate.h"
+#include "Helmet.h"
+#include "Greaves.h"
+#include "sword.h"
+#include "spear.h"
+#include "bow.h"
+#include "shield.h"
 
 class ItemEncounter : public Encounter {
     private:
@@ -53,7 +64,7 @@ class ItemEncounter : public Encounter {
      } 
      ~ItemEncounter(){}
      void run(Player* p1) {
-	std::char userIn;
+	char userIn;
 	bool done = false;
 	std::cout << "Would you like to pick up this item (" << itemEncountered->get_name() << ")? 1 for yes, 2 for no" << std::endl;
 	while(done == false) {

@@ -23,6 +23,7 @@ class Trap{
 		int getStatus(){
 			return statusCaused; 
 		}
+		virtual void attemptDisarm(Player* p1)=0;
 };
 
 #endif

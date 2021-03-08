@@ -18,8 +18,8 @@ using namespace std;
 
 class ItemGenerate {
 	public:
-		ItemGenerate();
-		~ItemGenerate();
+		ItemGenerate(){}
+		~ItemGenerate(){}
 		
 		item* makeItem(int id){
 			int type = rand() % 3 + 1;
@@ -51,7 +51,7 @@ class ItemGenerate {
 				return new ChestPlate(id, iName + "Chestplate", 3*type);
 			}
 			else if(id==6){
-				return new Helment(id, iName + "Helmet", 2*type);
+				return new Helmet(id, iName + "Helmet", 2*type);
 			}
 			else if(id==7){
 				return new Greaves(id, iName + "Greaves", 1*type);
@@ -70,6 +70,6 @@ class ItemGenerate {
 				return nullptr;
 			}
 		}
-}
+};
 
 #endif //ITEMGENERATE_H

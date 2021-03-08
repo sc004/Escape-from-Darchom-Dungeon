@@ -7,7 +7,9 @@
 #include "spike_trap.h"
 #include "floor_trap.h"
 #include "dart_trap.h"
+#include <iostream>
 
+using namespace std;
 class Trap_Encounter : public Encounter{
 	private:
 		Trap* trapEncountered;
@@ -29,20 +31,20 @@ class Trap_Encounter : public Encounter{
 		~Trap_Encounter(){}
 		void run(Player* p){
 			bool done = false;
-			char option;
+			string option;
 			cout << "Would you like to disarm the trap? 1 for yes, 2 for no" << endl;
 
 			while(done == false){
-			cin << option;
-				if(option != '1' || option != '2'){
+			cin >> option;
+				if(option != "1" && option != "2"){
 					cout << "Please enter a valid response" << endl;
-				}else if(option == '1'){
+				}else if(option == "1"){
 					cout << "Player attempted to disarm the trap" << endl;
 					trapEncountered->attemptDisarm(p);
 					hasDisarmed = true;
 					done = true;
 					
-				}else if(option == '2'){
+				}else if(option == "2"){
 					cout << "Player decided not to disarm the trap" << endl;	
 					hasDisarmed = false;
 					done = true;
@@ -50,6 +52,6 @@ class Trap_Encounter : public Encounter{
 				
 			
 			}	
-
+		}
 };
 #endif

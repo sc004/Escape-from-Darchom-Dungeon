@@ -4,6 +4,8 @@
 #include <string>
 
 #include "dungeonManager.h"
+#include "dungeonManager.h"
+
 #include "player.h"
 #include "levelA.h"
 #include "levelB.h"
@@ -14,7 +16,7 @@ using namespace std;
 
 	class dungeon : public dungeonManager {
 		public:
-		Dungeon(int L){
+		dungeon(int L){
 			currentLevel = L;
 			buildLevels();
 		}
@@ -22,13 +24,13 @@ using namespace std;
 			for (int i=0;i<this->getLevels();i++){//does this for each level
 				int type = rand() % 30 + 1;
 				if(type <=10){
-					this->levels.pushback(new LevelA());
+					this->levels.push_back(new LevelA());
 				}
 				else if(type > 10 && type <=20){
-					this->levels.pushback(new LevelB());
+					this->levels.push_back(new LevelB());
 				}
 				else{
-					this->levels.pushback(new LevelC());
+					this->levels.push_back(new LevelC());
 				}
 			}
 		}
@@ -45,9 +47,9 @@ using namespace std;
 			cout << "Please enter the player's stats in the order: health, attack, defense, speed" << endl;
 			while(!isDone){
 				cout << "Enter the player health: (1 to 200)" << endl;
-				try{cin << health;
+				try{cin >> health;
 				}
-				catch{
+				catch(int e){
 					cout << "Please input a valid argument!" << endl;
 					continue;
 				}
@@ -55,9 +57,9 @@ using namespace std;
 					cout << "Invalid health stat entered. Try again" << endl;
 					while(!validHealth){
 						cout << "Enter player health: " << endl;
-						try{cin << health;
+						try{cin >> health;
 						}
-						catch{
+						catch(int e){
 							cout << "Please input a valid argument1" << endl;
 							continue;
 						}
@@ -69,18 +71,18 @@ using namespace std;
 					}
 				}
 				cout << "Enter player attack: (0 to 200)" << endl;
-				try{cin << attack;
+				try{cin >> attack;
 				}
-				catch{
+				catch(int e){
 					cout << "Please input a valid argument!" << endl;
 				}
 				if(attack < 0 || attack > 200){
 					cout << "Invalid attack stat entered. Try again" << endl;
 					while(!validAttack){
 						cout << "Enter player attack: " << endl;
-						try{cin << attack;
+						try{cin >> attack;
 						}
-						catch{
+						catch(int e){
 						cout << "Please input a valid argument!" << endl;
 						continue;
 						}
@@ -115,20 +117,20 @@ using namespace std;
 						}
 					}
 				}*/
-				cout << "Enter player speed: " << endl;
-				try{cin << speed;
+				cout << "Enter player speed: (1 to 200)" << endl;
+				try{cin >> speed;
 				}
-				catch{
+				catch(int e){
 					cout << "Please input a valid argument!" << endl;
 					continue;
 				}
-				if(speed < 0 || speed  > 200){
+				if(speed <= 0 || speed  > 200){
 					cout << "Invalid speed stat entered. Try again" << endl;
-					while(!invalidSpeed){
+					while(!validSpeed){
 						cout << "Enter speed stat: " << endl;
-						try{cin << speed;
+						try{cin >> speed;
 						}
-						catch{
+						catch(int e){
 							cout << "Please input a valid argument!" << endl;
 							continue;
 						}
@@ -139,65 +141,66 @@ using namespace std;
 						}
 					}
 				}
-			
+				isDone = true;
 				user  = new Player(health,attack,0,speed);
 			}
 		}
 			void explore(){
 				bool gameover = false;
 				while(!gameover){
-					for(int i=0;i<this->getlevels();i++){
-						for(int j=0;j<levels.at(i)->encounters.size();j++){
-							levels.at(i)->encounters.at(j)->run(user);
+					for(int i=0;i<this->getLevels();i++){
+						for(int j=0;j<(levels.at(i)->getEncounters()).size();j++){
+							(levels.at(i)->getEncounters()).at(j)->run(user);
 							if(user->get_health()<=0){
 								cout <<"You are dead....."<< endl;
 								gameover = true;
+								break;
 							}
 							//menue
 							bool inMenue1 = true;
-			bool inMenue2 = false;
-			bool inMenue3 = false;
-			string response;
-			int intResponse1;
-			int intResponse2;
-			while(inMenue1){
-				cout << "Your HP:  " << to_string(p->get_hp()) << "\t"<< mob->get_name()<<"'s HP:  "<< to_string(mob->get_hp())<<endl;
-				cout << "How would you like to proceed?\n" << "1 to move on, 2 to examine backpack."<<endl;
-				cin >> response;
-				try{
-					intResponse1 = stoi(response);
-				}
-				catch{
-					cout << "Please input a valid argument!"<<endl;
-					continue;
-				}
-				if(intResponse1 != 1 || intResponse1 != 2){
-					cout << "Please select one of the two responses!"<<endl;
-					continue;
-				}
+						bool inMenue2 = false;
+						bool inMenue3 = false;
+						string response;
+						int intResponse1;
+						int intResponse2;
+						while(inMenue1){
+				
+							cout << "How would you like to proceed?\n" << "1 to move on, 2 to examine backpack."<<endl;
+							cin >> response;
+							try{
+								intResponse1 = stoi(response);
+							}
+							catch(int e){
+							cout << "Please input a valid argument!"<<endl;
+							continue;
+							}
+							if(intResponse1 != 1 && intResponse1 != 2){
+							cout << "Please select one of the two responses!"<<endl;
+							continue;
+							}
 				/*now we have a valid response*/
-				if(intResponse ==1){
+				if(intResponse1 ==1){
 					inMenue1 = false;
 				}
-				else if(intResponse ==2){
+				else if(intResponse1 ==2){
 					inMenue2=true;
-					while(inMenu2){
-						p->displayInventory();
+					while(inMenue2){
+						user->displayInventory();
 						cout << "Which item would you like to interact with?\n" << "Respond with its number or 0 to back out."<<endl;
 						cin >> response;
 						try{
 							intResponse2 = stoi(response);
 						}
-						catch{
+						catch(int e){
 							cout << "Please input a valid argument!"<<endl;
 							continue;
 						}
-						if(intResponse2 <0 || intResponse2 > p->inventory.size()){
+						if(intResponse2 <0 || intResponse2 > user->inventory.size()){
 							cout << "Please give a valid item number or 0!"<<endl;
 							continue;
 						}
 						if(intResponse2 ==0){
-							inMenu2 = false;
+							inMenue2 = false;
 							continue;
 						}
 						else{/*three cases to deal with; a weapon type, a potion, and armor
@@ -207,13 +210,13 @@ using namespace std;
 							check item's ID, 1-4 = weapon, 5-7 = armor, 8-10 = potion */	
 							inMenue3 = true;
 							while(inMenue3){
-								if(p->inventory.at(intResponse2-1)->get_itemID()>=1 && p->inventory.at(intResponse2-1)->get_itemID()<=4){/*weapon if*/
+								if(user->inventory.at(intResponse2-1)->get_itemID()>=1 && user->inventory.at(intResponse2-1)->get_itemID()<=4){/*weapon if*/
 									string advantage = "No Bonus";
-									if(p->inventory.at(intResponse2-1)->get_itemID()==1){advantage = "versus goblins";}
-									else if(p->inventory.at(intResponse2-1)->get_itemID()==2){advantage = "versus trolls";}
-									else if(p->inventory.at(intResponse2-1)->get_itemID()==4){advantage = "versus wizards";}
-									cout<< "Name: " << p->inventory.at(intResponse2-1)->get_name()<<"\t Bonus: "<< advantage<<endl;
-									cout<< "Durability: "<< to_string(p->inventory.at(intResponse2-1)->get_durability());
+									if(user->inventory.at(intResponse2-1)->get_itemID()==1){advantage = "versus goblins";}
+									else if(user->inventory.at(intResponse2-1)->get_itemID()==2){advantage = "versus trolls";}
+									else if(user->inventory.at(intResponse2-1)->get_itemID()==4){advantage = "versus wizards";}
+									cout<< "Name: " << user->inventory.at(intResponse2-1)->get_name()<<"\t Bonus: "<< advantage<<endl;
+									cout<< "Durability: "<< to_string(user->inventory.at(intResponse2-1)->get_durability());
 									cout<< "Would you like to wield this? y to equip, n to back out"<<endl;
 									cin>> response;
 									if(response != "y"&& response != "n"){
@@ -221,14 +224,14 @@ using namespace std;
 										continue;
 									}
 									else if(response=="y"){
-										if(p->inventory.at(intResponse2-1)->get_itemID()==3){
-											p->blocking = true;
-											cout<< "The " << p->inventory.at(intResponse2-1)->get_name()<< " is ready to recieve a blow."<<endl;
+										if(user->inventory.at(intResponse2-1)->get_itemID()==3){
+											user->set_blocking(true);
+											cout<< "The " << user->inventory.at(intResponse2-1)->get_name()<< " is ready to recieve a blow."<<endl;
 										}
 										else{
-											p->unequipWeapon(p->currentWeapon);
-											p->equipWeapon(p->inventory.at(intResponse2-1));
-											cout<< "You are now wielding your " <<p->inventory.at(intResponse2-1)->get_name() <<".\n";
+											user->unequipWeapon(user->currentWeapon);
+											user->equipWeapon(user->inventory.at(intResponse2-1));
+											cout<< "You are now wielding your " <<user->inventory.at(intResponse2-1)->get_name() <<".\n";
 										}
 										/*player did equip, so back out of menu*/
 										inMenue3=false;
@@ -239,12 +242,12 @@ using namespace std;
 										continue;
 									}
 								}
-								else if(p->inventory.at(intResponse2-1)->get_itemID()>=5 && p->inventory.at(intResponse2-1)->get_itemID()<=7){/*armor if*/
-									if(p->inventory.at(intResponse2-1)->get_isEquiped()){/*armor is equipped*/
-										cout << p->inventory.at(intResponse2-1)->get_name() <<" is currently equipped.\nThere is nothing else you can do with this at this time."<<endl;
+								else if(user->inventory.at(intResponse2-1)->get_itemID()>=5 && user->inventory.at(intResponse2-1)->get_itemID()<=7){/*armor if*/
+									if(user->inventory.at(intResponse2-1)->get_isEquiped()){/*armor is equipped*/
+										cout << user->inventory.at(intResponse2-1)->get_name() <<" is currently equipped.\nThere is nothing else you can do with this at this time."<<endl;
 									}
 									else{
-										cout << p->inventory.at(intResponse2-1)->get_name() <<" is not currently equipped.\nWould you like to equip it now? y to equip, n to back out."<<endl;
+										cout << user->inventory.at(intResponse2-1)->get_name() <<" is not currently equipped.\nWould you like to equip it now? y to equip, n to back out."<<endl;
 										bool rCheck=false;
 										while (!rCheck){
                                                                                 	cin>> response;
@@ -255,16 +258,16 @@ using namespace std;
                                                                                 	else{rCheck = true;}
                                                                         	}
                                                                         	if (response == "y"){
-                                                                                	p->UseItem(p->inventory.at(intResponse2-1));
+                                                                                	user->UseItems(user->inventory.at(intResponse2-1));
 										}
 										inMenue3=false;
 									}
 									inMenue3=false;
-									continue
+									continue;
 								}
 								else{/*item is a potion*/
 									bool rCheck = false;
-									cout << p->inventory.at(intResponse2-1)->get_name()<<"\nWould you like to consume this? y to consume, n to back out"<<endl;
+									cout << user->inventory.at(intResponse2-1)->get_name()<<"\nWould you like to consume this? y to consume, n to back out"<<endl;
 									while (!rCheck){
 										cin>> response;
 										if(response !="y" && response != "n"){
@@ -274,7 +277,7 @@ using namespace std;
 										else{rCheck = true;}
 									}
 									if (response == "y"){
-										p->UseItem(p->inventory.at(intResponse2-1));
+										user->UseItems(user->inventory.at(intResponse2-1));
 									}
 									/*if y wasnt selected, just back out*/
 									inMenue3=false;
@@ -287,16 +290,21 @@ using namespace std;
 				}
 			}
 							//end menue
-							if(j+1<levels.at(i)->encounters.size()){
+							if(j+1<(levels.at(i)->getEncounters()).size()){
 								cout << "You move onto the next room..."<< endl;
 							}
 						}
-						if(i+1<this->getlevels()){
+						if(user->get_health()<=0){
+							break;
+						}
+						if(i+1<this->getLevels()){
                                                                 cout << "You have survived floor "<< to_string(i+1)<<" and move onto the next";
                                	                }
 					}
-					gameover = true;
-					cout << "Congratulations, You have made it through all the floors of Darchom Dungeon!" << endl;
+					if(!gameover){
+						gameover = true;
+						cout << "Congratulations, You have made it through all the floors of Darchom Dungeon!" << endl;
+					}
 				}
 				cout << "GAMEOVER!"<<endl;
 			}	

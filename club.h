@@ -11,6 +11,6 @@ class Club : public weapon{
 		Club(): weapon(100, "Club", 0, 10){
 
 		}
-		~Club();
+		~Club(){}
 };
 #endif //CLUB_H

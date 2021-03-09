@@ -16,7 +16,7 @@ class weapon : public item{
 			advPoints = aP;
 			durability = d;
 			}
-		~weapon();
+		~weapon(){}
 		int get_advPoints(){
 			return advPoints;
 		}

@@ -14,7 +14,7 @@ class shield : public weapon{
 			defense= def;
 			//0 sent to the weapon class indicates no advantage
 		}
-		~shield();
+		~shield(){}
 		int get_defense(){
 			return defense;
 		}

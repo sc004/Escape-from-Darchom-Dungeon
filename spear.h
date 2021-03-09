@@ -14,7 +14,7 @@ class spear : public weapon{
 			attack = atk;
 			//2 = advantage vs troll
 		}
-		~spear();
+		~spear(){}
 		int get_attack(){
 			return attack;
 		}

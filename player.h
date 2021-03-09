@@ -30,6 +30,20 @@ class Player {
 		maxHealth = health;
 		status = 0;
 		turnCounter = 0;
+		blocking = false;
+	}
+	~Player(){
+		currentWeapon=nullptr;
+		/*delete currentWeapon;
+		for(int i=0;i<inventory.size();i++){
+			delete inventory.at(i);
+		}*/
+		//inventory.clear();
+		while(!inventory.empty()) {
+                        delete inventory.back();
+                        inventory.pop_back();
+                }
+		//delete inventory;
 	}
 	void attack(Enemy* e){
 		int health = e->get_hp();

@@ -13,7 +13,11 @@ class Wizard : public Enemy {
             Enemy(hp, attack, defense, speed, weakness, n) {
                 loot = l;
             }
-	~Wizard();
+	~Wizard(){
+		if(loot !=nullptr||loot !=NULL){
+                        delete loot;
+                }
+	}
 	int useFireball(int pHP, int pDef){
             	int damage = (int)((9*get_attack())/(pDef/2+1))+1;
             	return pHP - damage;
@@ -40,7 +44,11 @@ class Wizard : public Enemy {
             }
         }
 
-        item* get_loot() {return loot;}
+        item* get_loot() {
+                item* temp= loot;
+                loot = nullptr;
+                return temp;
+        }
 
 };
 

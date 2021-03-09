@@ -14,7 +14,7 @@ class Spike_Trap: public Trap{
 		Spike_Trap(int statusC): Trap(statusC){
 			damage = 60;
 		}
-		~Spike_Trap();
+		~Spike_Trap(){}
 		virtual void attemptDisarm(Player* p1){
 			int chance = rand() % 100 + 1;
 			if(chance < 50){
@@ -27,9 +27,10 @@ class Spike_Trap: public Trap{
 					p1->set_Counter(p1->get_Counter() + 5);
 					cout << endl;
 				}
-         p1->set_health(p1->get_health() - damage);
-         p1->AddItems(getItem());
-			}else{
+         			p1->set_health(p1->get_health() - damage);
+         			p1->AddItems(getItem());
+			}
+			else{
 				cout << "Spike Trap was successfully disarmed. You got a potion!" <<endl;
 				p1->AddItems(getItem());
 			}

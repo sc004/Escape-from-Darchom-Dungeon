@@ -10,7 +10,7 @@ using namespace std;
 class EnemyEncounterFactory: public EncounterFactory{
 	public:
 		EnemyEncounterFactory(){}
-		~EnemyEncounterFactory();
+		~EnemyEncounterFactory(){}
 		virtual Encounter* makeEncounter(){
 			Encounter* enemy = new EnemyEncounter(1);
 			return enemy;

@@ -63,7 +63,11 @@ class ItemEncounter : public Encounter {
                 itemEncountered = new IncreaseSpeed(10, "Increase Speed Potion");
         }
      } 
-     ~ItemEncounter(){}
+     ~ItemEncounter(){
+		if(itemEncountered !=nullptr||itemEncountered !=NULL){
+			delete itemEncountered;
+		}
+	}
      void run(Player* p1) {
 	char userIn;
 	bool done = false;

@@ -13,7 +13,9 @@ class item{
 		string name;
 	public:
 		item(int id, string n){itemID = id; name = n;}
-		~item();
+		~item(){
+			//delete this;
+		}		
 		int get_itemID(){
 			return itemID;
 		}

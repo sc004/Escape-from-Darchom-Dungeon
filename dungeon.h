@@ -23,6 +23,13 @@ using namespace std;
 			currentLevel = L;
 			buildLevels();
 		}
+		~dungeon(){
+			delete user;/*
+			for(int i=0;i<this->levels.size();i++){
+				delete this->levels.at(i);
+			}
+			this->levels.clear();*/
+		}
 		void buildLevels(){
 				srand((unsigned) time(0));
 			for (int i=0;i<this->getLevels();i++){//does this for each level

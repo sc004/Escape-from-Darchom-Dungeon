@@ -40,7 +40,12 @@ class LevelC: public Level{
                         delete trap;
                         delete item;
                 }
-                ~LevelC(){}
+                ~LevelC();/*
+			for(int i=0;i<encounters.size();i++){
+                        	delete encounters.at(i);
+                	}
+                	encounters.clear();*/
+		
 };
 
 #endif

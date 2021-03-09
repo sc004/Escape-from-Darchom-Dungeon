@@ -37,6 +37,17 @@ class dungeonManager{
 				}
 			}
 		}
+		~dungeonManager(){
+			/*for(int i=0;i<levels.size();i++){
+                        	delete levels.at(i);
+                	}*/
+                	//levels.clear();
+			while(!levels.empty()) {
+                        	delete levels.back();
+                        	levels.pop_back();
+                	}
+			//delete levels;
+		}
 		int getLevels(){
 			return levelCount;
 		}

@@ -8,7 +8,7 @@ using namespace std;
 class DoubleHealth : public Potion{
    public:
       DoubleHealth(int i, std::string n) : Potion(i, n) {}
-        ~DoubleHealth();
+        ~DoubleHealth(){}
         virtual void increaseStats(Player* p1) {
                         p1->set_maxHealth(p1->get_maxHealth() *2);
                         p1->set_health(p1->get_health() * 2);

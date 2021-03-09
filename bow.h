@@ -14,7 +14,7 @@ class bow : public weapon{
 			attack = atk;
 			//3 sent to weapon indicates advantage vs wizard
 		}
-		~bow();
+		~bow(){}
 		int get_attack(){
 			return attack;
 		}

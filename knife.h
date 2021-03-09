@@ -11,6 +11,6 @@ class Knife : public weapon{
 		Knife(): weapon(99, "Knife", 0, 10){
 
 		}
-		~Knife();
+		~Knife(){}
 };
 #endif //KNIFE_H

@@ -12,7 +12,7 @@ class Armor : public item {
 	Armor(int i, std::string n, int d) : item(i, n) {
 		defense = d;
 	}
-	~Armor();
+	~Armor(){}
 	int get_defense() {
 		return defense;
 	}

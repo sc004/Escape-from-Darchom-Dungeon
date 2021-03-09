@@ -15,7 +15,12 @@ class Troll : public Enemy {
                 weapon = w;
                 loot = l;
             }
-	~Troll();
+	~Troll(){
+		delete weapon;
+		if(loot !=nullptr||loot!=NULL){
+                        delete loot;
+                }
+	}
 	int useSwipe(int pHP, int pDef){
             	int damage = (int)((5*get_attack())/(pDef+1))+1;
             	return pHP - damage;
@@ -35,7 +40,11 @@ class Troll : public Enemy {
             }
         }
         item* get_weapon() {return weapon;}
-        item* get_loot() {return loot;}
+        item* get_loot() {
+                item* temp= loot;
+                loot = nullptr;
+                return temp;
+        }
 
 };
 

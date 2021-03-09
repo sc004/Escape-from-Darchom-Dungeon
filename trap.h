@@ -16,9 +16,15 @@ class Trap{
 			statusCaused = statusC;
 			pot  = new FullHealth(9, "FullHealth Potion");
 		}
-		~Trap();
+		~Trap(){
+			if(pot !=NULL|| pot != nullptr){
+                        	delete pot;
+                	}
+		}
 		Potion* getItem(){
-			return pot;
+			Potion* temp= pot;
+                	pot = nullptr;
+                	return temp;
 		}
 		int getStatus(){
 			return statusCaused; 

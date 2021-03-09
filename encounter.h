@@ -10,8 +10,11 @@ class Encounter{
 	private:
 		int type;
 	public:
+		
 		Encounter(int t){type = t;}
-		~Encounter(){}
+		~Encounter();{
+			cout << "in encounter destructor\n";
+		}
 		int get_type(){
 			return type;
 		}

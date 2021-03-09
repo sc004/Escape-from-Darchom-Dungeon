@@ -22,7 +22,7 @@ class Enemy {
             weakness = _weakness;
             name = _name;
         }
-	~Enemy();
+	~Enemy(){}
         virtual int enemyAttk(int pHP, int pDef) = 0;
         int get_hp() {return hp;}
 	void set_hp(int healt) {hp = healt;}

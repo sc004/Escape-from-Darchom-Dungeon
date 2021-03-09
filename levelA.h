@@ -42,7 +42,12 @@ class LevelA: public Level{
 			delete trap;
 			delete item;
 		}
-		~LevelA(){}
+		~LevelA();/*
+			for(int i=0;i<encounters.size();i++){
+                        	delete encounters.at(i);
+                	}
+                	encounters.clear();*/
+		
 };
 
 #endif

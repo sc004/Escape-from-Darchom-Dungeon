@@ -16,7 +16,12 @@ class Goblin : public Enemy {
                 weapon = w;
                 loot = l;
          }
-	~Goblin();
+	~Goblin(){
+		delete weapon;
+		if(loot !=nullptr||loot !=NULL){
+			delete loot;
+		}
+	}
         int useSlash (int pHP, int pDef){
 		int damage = (int)((3*get_attack())/(pDef+1))+1;
             	return pHP - damage;
@@ -36,7 +41,11 @@ class Goblin : public Enemy {
             }
         }
         item* get_weapon() {return weapon;}
-        item* get_loot() {return loot;}
+        item* get_loot() {
+		item* temp= loot;
+		loot = nullptr;
+		return temp;
+	}
 
 };
 

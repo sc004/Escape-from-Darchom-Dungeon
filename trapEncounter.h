@@ -31,7 +31,9 @@ class Trap_Encounter : public Encounter{
 			trapEncountered = new Dart_Trap(3);
 			}
 		}
-		~Trap_Encounter(){}
+		~Trap_Encounter(){
+			delete trapEncountered;
+		}
 		void run(Player* p){
 			bool done = false;
 			string option;

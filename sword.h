@@ -14,7 +14,7 @@ class sword : public weapon{
 			attack = atk;
 			//1 = advantage vs goblin
 		}
-		~sword();
+		~sword(){};
 		int get_attack(){
 			return attack;
 		}

@@ -15,7 +15,7 @@ int main(){
 	dungeon* dungeon1 = new dungeon(0);
 	dungeon1->generatePlayer();
 	dungeon1->explore();
-	
+	delete dungeon1;
 	return 0;
 }
 

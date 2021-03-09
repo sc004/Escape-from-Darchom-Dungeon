@@ -18,11 +18,12 @@ class Dart_Trap : public Trap{
 		void attemptDisarm(Player* p1){
 			int chance = rand() % 100 + 1;
 			if(chance < 50){
-				cout << "You did not successfully disarm the Dart Trap. You took " << damage << " and are now poisoned" << endl;
+				cout << "You did not successfully disarm the Dart Trap. You took " << damage << " damage and are now poisoned" << endl;
 				p1->set_health(p1->get_health() - damage);
+				p1->set_status(getStatus());
 				p1->AddItems(getItem());
 			}else{
-				cout << "Dart Trap was successfully disarmed." << endl;
+				cout << "Dart Trap was successfully disarmed. You got a potion!" << endl;
 				p1->AddItems(getItem());
 			}
 		}

@@ -18,25 +18,32 @@ class Player {
 	int status;
 	bool blocking;
 	int maxHealth;
-        
+        int turnCounter;
     public:
 	item* currentWeapon=nullptr;
 	vector<item*> inventory;
        	Player(int h, int a, int d, int s){
-		health = 100;
-		_attack = 60;
-		defense = 50;
-		speed = 50;
+		health = h;
+		_attack = a;
+		defense = d;
+		speed = s;
 		maxHealth = health;
+		status = 0;
+		turnCounter = 0;
 	}
 	void attack(Enemy* e){
 		int health = e->get_hp();
+		cout << "before if in attack function\n";
 		if(currentWeapon != nullptr){
 			if(this->currentWeapon->get_advPoints() == e->get_weakness()){
 			cout << "A Critical hit!" << endl;
 			cout << "You dealt " << to_string(_attack*2) << " damage to " << e->get_name() << "!\n";	
 			health -= (this->_attack*2);
 			e->set_hp(health);
+			}else{
+				cout << "You dealt " << _attack << " damage to " << e->get_name() << "!\n";
+				health -= (this->_attack);
+				e->set_hp(health);
 			}
 		}
 		else{
@@ -128,6 +135,19 @@ class Player {
 	}
 	bool get_blocking(){
 		return blocking;
+	}
+	void set_Counter(int num){
+		turnCounter = num;
+	}
+	int get_Counter(){
+		return turnCounter;
+	}
+	bool hasStatus(){
+		if(get_status() == 1 || get_status() == 2 || get_status() == 3){
+			return true;
+		}else{
+			return false;
+		}
 	}
 };
 

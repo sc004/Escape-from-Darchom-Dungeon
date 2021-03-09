@@ -47,8 +47,29 @@ class EnemyEncounter : public Encounter{
 					continue;
 				}
 				/*now we have a valid response*/
-				if(intResponse1 ==1){
+				if(intResponse1 == 1){	
 					p->attack(mob);
+					if(p->get_status() == 1){
+						cout << "You took 3 damage from Poison! You have " << p->get_Counter() << " turns of Poison remaining" << endl;
+						p->set_Counter(p->get_Counter() - 1);
+						p->set_health(p->get_health() - 3);
+						
+					}
+					if(p->get_status() == 2){
+						cout << "You took 3 damage from Bleed! You have " << p->get_Counter() << " turns of Bleed remaining" << endl;
+						p->set_Counter(p->get_Counter() - 1);
+						p->set_health(p->get_health() - 3);
+					}
+					if(p->get_status() == 3){
+						cout << "You are crippled! Your speed will get reduced by 5 for " << p->get_Counter() << " turns" << endl;
+						p->set_Counter(p->get_Counter() - 1);
+						p->set_speed(p->get_speed() - 5);
+						
+					}
+					if(p->get_Counter() == 0 && p->get_status() != 0){
+						cout << "You are no longer afflicted with the previous ailment." << endl;
+						p->set_status(0);
+					}
 					inMenue1 = false;
 				}
 				else if(intResponse1 ==2){

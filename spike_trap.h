@@ -20,17 +20,17 @@ class Spike_Trap: public Trap{
 			if(chance < 50){
 				cout << "Spike Trap was not successfully disarmed. You took " << damage << " damage";
 				if(!p1->hasStatus()){
-					cout << " and are now bleeding" << endl;
+					cout << " and are now bleeding!  At least you got a potion for it." << endl;
 					p1->set_status(2);
 					p1->set_Counter(5);
 				}else{
 					p1->set_Counter(p1->get_Counter() + 5);
 					cout << endl;
 				}
-                                p1->set_health(p1->get_health() - damage);
-                                p1->AddItems(getItem());
+         p1->set_health(p1->get_health() - damage);
+         p1->AddItems(getItem());
 			}else{
-				cout << "Spike Trap was successfully disarmed" <<endl;
+				cout << "Spike Trap was successfully disarmed. You got a potion!" <<endl;
 				p1->AddItems(getItem());
 			}
 		}

@@ -169,7 +169,7 @@ using namespace std;
 						int intResponse2;
 						while(inMenue1){
 				
-							cout << "How would you like to proceed?\n" << "1 to move on, 2 to examine backpack."<<endl;
+							cout << "How would you like to proceed?\n" << "1 to move on, 2 to examine backpack, 3 to display player stats."<<endl;
 							cin >> response;
 							try{
 								intResponse1 = stoi(response);
@@ -178,13 +178,16 @@ using namespace std;
 							cout << "Please input a valid argument!"<<endl;
 							continue;
 							}
-							if(intResponse1 != 1 && intResponse1 != 2){
-							cout << "Please select one of the two responses!"<<endl;
+							if(intResponse1 != 1 && intResponse1 != 2 && intResponse1 != 3){
+							cout << "Please select one of the three responses!"<<endl;
 							continue;
 							}
 				/*now we have a valid response*/
 				if(intResponse1 ==1){
 					inMenue1 = false;
+				}
+				else if (intResponse1 == 3) {
+					user->displayPlayerStats();
 				}
 				else if(intResponse1 ==2){
 					inMenue2=true;
@@ -220,7 +223,7 @@ using namespace std;
 									else if(user->inventory.at(intResponse2-1)->get_itemID()==2){advantage = "versus trolls";}
 									else if(user->inventory.at(intResponse2-1)->get_itemID()==4){advantage = "versus wizards";}
 									cout<< "Name: " << user->inventory.at(intResponse2-1)->get_name()<<"\t Bonus: "<< advantage<<endl;
-									cout<< "Durability: "<< to_string(user->inventory.at(intResponse2-1)->get_durability());
+									cout<< "Durability: "<< to_string(user->inventory.at(intResponse2-1)->get_durability()) << endl;
 									cout<< "Would you like to wield this? y to equip, n to back out"<<endl;
 									cin>> response;
 									if(response != "y"&& response != "n"){
@@ -302,7 +305,7 @@ using namespace std;
 							break;
 						}
 						if(i+1<this->getLevels()){
-                                                                cout << "You have survived floor "<< to_string(i+1)<<" and move onto the next";
+                                                                cout << "You have survived floor "<< to_string(i+1)<<" and move onto the next" << endl;
                                	                }
 					}
 					if(!gameover){

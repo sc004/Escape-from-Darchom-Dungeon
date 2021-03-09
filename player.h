@@ -2,7 +2,7 @@
 #define __PLAYER_HPP__
 
 #include "item.h"
-//#include "armor.h"
+#include "armor.h"
 #include "Enemy.hpp"
 #include <iostream>
 #include <vector>
@@ -50,8 +50,9 @@ class Player {
 	}
 	void UseItems(item* i){
 		if(i->get_itemID() >=5 && i->get_itemID() <=7){
+			bool equiped = true;
 			i->increaseStats(this);
-			i->set_isEquipped(true);
+			i->set_isEquiped(equiped);
 			cout << i->get_name() << " has been equipped" << endl;
 		}else if(i->get_itemID() <= 10 && i->get_itemID() >= 8){
 			i->increaseStats(this);
@@ -79,13 +80,23 @@ class Player {
 	void displayInventory(){
 		int count = 1;
 		for(int i = 0; i < inventory.size(); i++){
-			cout << to_string(count) << ") " <<  inventory.at(i)->get_name() << endl;
-			count++;
-		}	
+			if(inventory.at(i)->get_isEquiped()){
+				cout << to_string(count) << ") " << inventory.at(i)->get_name() << " (e)" << endl;
+				count++;
+			}else if(inventory.at(i) == currentWeapon){
+				cout << to_string(count) << ") " << inventory.at(i)->get_name() << " (w)" << endl;
+				count++;
+			}
+			else{
+				cout << to_string(count) << ") " <<  inventory.at(i)->get_name() << endl;
+				count++;
+			}
+		}
+				
 	}
 
 	void displayPlayerStats(){
-		cout << "health: " << to_string(health) << " " << "attack: " << to_string(_attack) << " " << "defense " << to_string(defense) << "speed: " << to_string(speed) << " " << "current status : " << to_string(status);
+		cout << "health " << to_string(health) << " " << "attack: " << to_string(_attack) << " " << "defense " << to_string(defense) << "speed: " << to_string(speed) << " " << "current status : " << to_string(status);
 	}
 	int get_attack() {return _attack;}
 	void set_attack(int a) {_attack = a;}

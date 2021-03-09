@@ -21,7 +21,7 @@ class item{
 			return name;
 		}
 		//armor functs
-		virtual void set_isEquipped(bool equip){}
+		virtual void set_isEquiped(bool equip){}
 		virtual bool get_isEquiped(){return false;}
 		virtual int get_defense(){return 0;}
 		//armor and pot funct

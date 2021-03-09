@@ -47,7 +47,7 @@ class EnemyEncounter : public Encounter{
 					continue;
 				}
 				/*now we have a valid response*/
-				if(intResponse1 ==1){
+				if(intResponse1 == 1){	
 					p->attack(mob);
 					inMenue1 = false;
 				}

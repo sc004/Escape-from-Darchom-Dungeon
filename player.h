@@ -31,12 +31,17 @@ class Player {
 	}
 	void attack(Enemy* e){
 		int health = e->get_hp();
+		cout << "before if in attack function\n";
 		if(currentWeapon != nullptr){
 			if(this->currentWeapon->get_advPoints() == e->get_weakness()){
 			cout << "A Critical hit!" << endl;
 			cout << "You dealt " << to_string(_attack*2) << " damage to " << e->get_name() << "!\n";	
 			health -= (this->_attack*2);
 			e->set_hp(health);
+			}else{
+				cout << "You dealt " << _attack << " damage to " << e->get_name() << "!\n";
+				health -= (this->_attack);
+				e->set_hp(health);
 			}
 		}
 		else{

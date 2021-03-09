@@ -9,10 +9,16 @@
 using namespace std;
 class EnemyEncounterFactory: public EncounterFactory{
 	public:
+		vector<EnemyEncounter*> enemies;
 		EnemyEncounterFactory(){}
-		~EnemyEncounterFactory(){}
+		~EnemyEncounterFactory(){
+			for(int i=0;i<enemies.size();i++){
+                                delete enemies.at(i);
+                        }
+		}
 		virtual Encounter* makeEncounter(){
-			Encounter* enemy = new EnemyEncounter(1);
+			EnemyEncounter* enemy = new EnemyEncounter(1);
+			enemies.push_back(enemy);
 			return enemy;
 		}
 };

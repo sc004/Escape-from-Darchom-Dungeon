@@ -27,18 +27,8 @@ class Level{
 	Level(){}
 	~Level(){
 		delete enemy;
-                        delete trap;
-                        delete item;
-		/*for(int i=0;i<encounters.size();i++){
-			delete encounters.at(i);
-		}
-		//encounters.clear();
-		while(!encounters.empty()) {
-        		delete encounters.back();
-        		encounters.pop_back();
-    		}*/
-		cout <<"deleted a level's encounters\n";
-		//delete encounters;
+                delete trap;
+                delete item;
 	}
 	vector<Encounter*> getEncounters(){
 		return encounters;

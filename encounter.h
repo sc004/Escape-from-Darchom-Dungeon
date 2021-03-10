@@ -12,9 +12,7 @@ class Encounter{
 	public:
 		
 		Encounter(int t){type = t;}
-		~Encounter();{
-			cout << "in encounter destructor\n";
-		}
+		~Encounter(){}
 		int get_type(){
 			return type;
 		}

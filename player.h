@@ -121,8 +121,8 @@ class Player {
 
 		string cStatus;
 		if (this->status ==  1) {cStatus = "bleeding";}
-		else if (this->status == 3) {cStatus = "poisoned";}
-		else if (this->status == 2) {cStatus = "crippled";}
+		else if (this->status == 2) {cStatus = "poisoned";}
+		else if (this->status == 3) {cStatus = "crippled";}
 		else {cStatus = "normal";}
 		cout << "PLAYER STATS" << endl;
 		cout << "HEALTH: " << to_string(health)  << ", ATTACK: " << to_string(_attack)  << ", DEFENSE " << to_string(defense) << ", SPEED: " << to_string(speed)<<", CURRENT STATUS: " << cStatus  << endl;

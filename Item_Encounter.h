@@ -64,7 +64,7 @@ class ItemEncounter : public Encounter {
         }
      } 
      ~ItemEncounter(){
-		if(itemEncountered !=nullptr||itemEncountered !=NULL){
+		if(itemEncountered !=nullptr&&itemEncountered !=NULL){
 			delete itemEncountered;
 		}
 	}
@@ -79,6 +79,7 @@ class ItemEncounter : public Encounter {
 		cout << "Player has picked up " << itemEncountered->get_name() << std::endl;
 		hasReceived = true;
 		done = true;
+		itemEncountered=nullptr;
 	     }
 	     else if(userIn == '2'){
 		std::cout << "Player has decided not to pick up " << itemEncountered->get_name() << std::endl;

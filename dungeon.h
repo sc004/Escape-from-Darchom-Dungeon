@@ -55,7 +55,7 @@ using namespace std;
 			//bool validDefense = false;
 			bool validSpeed = false;
 			bool isDone = false;
-			cout << "Please enter the player's stats in the order: health, attack, defense, speed" << endl;
+			cout << "Please enter the player's stats in the order: health, attack, speed" << endl;
 			while(!isDone){
 				cout << "Enter the player health: (1 to 200)" << endl;
 				try{cin >> health;

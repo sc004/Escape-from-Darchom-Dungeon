@@ -47,7 +47,7 @@ class Player {
 	}
 	void attack(Enemy* e){
 		int health = e->get_hp();
-		cout << "before if in attack function\n";
+		
 		if(currentWeapon != nullptr){
 			if(this->currentWeapon->get_advPoints() == e->get_weakness()){
 			cout << "A Critical hit!" << endl;

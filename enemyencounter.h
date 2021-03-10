@@ -19,6 +19,9 @@
 using namespace std;
 class EnemyEncounter : public Encounter{
 	private:
+		Knife* k1= nullptr;
+		Club* c1= nullptr;
+		item* i1= nullptr;
 		int type;
 		Enemy* mob;
 		string gName[10] = {"Wizz","Coibs","Trik","Grelk","Ild","Kreelkerd","Glelsaalb","Diazozz","Toinalx","Kigeazz"};
@@ -168,10 +171,16 @@ class EnemyEncounter : public Encounter{
 			}
 		}
 		void enemyTurn(Player* p){
-			int prev_hp= p->get_health();
-			p->set_health(mob->enemyAttk(prev_hp, p->get_defense()));
-			int hplost = prev_hp - p->get_health();
-			cout << mob->get_name()<<"'s attack dealt "<< to_string(hplost) <<" damage to you."<<endl;
+			if(p->get_blocking()){
+				cout << "You successfully blocked " << mob->get_name()<<"'s attack!"<<endl;
+				p->set_blocking(false); 
+			}
+			else{
+				int prev_hp= p->get_health();
+				p->set_health(mob->enemyAttk(prev_hp, p->get_defense()));
+				int hplost = prev_hp - p->get_health();
+				cout << mob->get_name()<<"'s attack dealt "<< to_string(hplost) <<" damage to you."<<endl;
+			}
 		}
 	public:
 		EnemyEncounter(int t): Encounter(t){
@@ -179,26 +188,34 @@ class EnemyEncounter : public Encounter{
 			 int mtype = (rand() % 3) + 1;
 			 int name = rand() % 10;
 			 int itemType = (rand() % 10) + 1;
-			 
+			 i1 = lootG->makeItem(itemType);
 			 if(mtype ==1){
-				 
-				 mob = new Goblin(50, 10, 10, 50,1, "Goblin "+gName[name], new Knife(), lootG->makeItem(itemType));
+				k1 = new Knife();
+				mob = new Goblin(50, 10, 10, 50,1, "Goblin "+gName[name], k1, i1);
 			 }
 			 else if(mtype ==2){
-				 
-				 mob = new Troll(50, 10, 10, 50,2, "Troll "+tName[name], new Club(), lootG->makeItem(itemType));
+				c1 = new Club(); 
+				mob = new Troll(100, 10, 10, 50,2, "Troll "+tName[name], c1, i1);
 			 }
 			 else if(mtype ==3){
 				 
-				 mob = new Wizard(50, 10, 10, 50,3, "Wizard "+wName[name], lootG->makeItem(itemType));
+				mob = new Wizard(90, 10, 10, 50,3, "Wizard "+wName[name], i1);
 			 }
-			 
-			 
-			 
-			 
-			 delete lootG;
+			delete lootG;
 		}
-		~EnemyEncounter();
+		~EnemyEncounter(){
+			delete mob;
+			if(i1!= nullptr && i1!=NULL){
+				delete i1;
+			}
+			if(c1!= nullptr && c1!=NULL){
+                                delete c1;
+                        }
+			if(k1!= nullptr && k1!=NULL){
+                                delete k1;
+                        }
+			cout << "deleted a mob\n";
+		}
 		void run(Player* p){
 			bool isOver = false;
 			cout << "You have encountered " << mob->get_name() <<".  It engages you in a fight.\n";
@@ -215,7 +232,7 @@ class EnemyEncounter : public Encounter{
 					if(mob->get_hp()<=0){
 						isOver=true;
 						p->AddItems(mob->get_loot());
-						
+						i1=nullptr;
 						continue;
 					}	
 				}
@@ -226,6 +243,7 @@ class EnemyEncounter : public Encounter{
 					playerTurn(p);
 					if(mob->get_hp()<=0){
 						p->AddItems(mob->get_loot());
+						i1=nullptr;
 						isOver=true;
 						continue;
 					}

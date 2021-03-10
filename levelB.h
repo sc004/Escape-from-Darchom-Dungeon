@@ -11,13 +11,12 @@
 
 class LevelB: public Level{
         private:
-                int levelID;
-
+                int levelID;/*
+		EncounterFactory* enemy = new EnemyEncounterFactory();
+                EncounterFactory* trap = new TrapEncounterFactory();
+                EncounterFactory* item = new ItemEncounterFactory();*/
         public:
                 LevelB(){
-			EncounterFactory* enemy = new EnemyEncounterFactory();
-                        EncounterFactory* trap = new TrapEncounterFactory();
-                        EncounterFactory* item = new ItemEncounterFactory();
 			//srand((unsigned) time(0));
                         for(int i = 0; i < 7; i++){
                                 int a = (rand() % 3) + 1;
@@ -37,16 +36,13 @@ class LevelB: public Level{
                                 }
                         }
                         levelID = 2;
-                        delete enemy;
-                        delete trap;
-                        delete item;
+                        
                 }
-                ~LevelB();/*
-			for(int i=0;i<encounters.size();i++){
-                        	delete encounters.at(i);
-                	}
-                	encounters.clear();*/
-		
+                ~LevelB(){
+			delete enemy;
+                        delete trap;
+                        delete item;	
+		}		
 };
 
 #endif

@@ -6,14 +6,22 @@
 #include "encounterfactory.h"
 #include "trapEncounter.h"
 #include <iostream>
+#include <vector>
+
 using namespace std;
 
 class TrapEncounterFactory: public EncounterFactory{
 	public:
+		vector<Trap_Encounter*> traps;
 		TrapEncounterFactory(){}
-		~TrapEncounterFactory();
+		~TrapEncounterFactory(){
+			for(int i=0;i<traps.size();i++){
+                        	delete traps.at(i);
+                	}
+		}
 		virtual Encounter* makeEncounter(){
-			Encounter* trap = new Trap_Encounter(2);
+			Trap_Encounter* trap = new Trap_Encounter(2);
+			traps.push_back(trap);
 			return trap;
 		}
 };

@@ -22,7 +22,8 @@ using namespace std;
 class ItemGenerate {
 	public:
 		ItemGenerate(){}
-		~ItemGenerate(){}
+		~ItemGenerate(){
+		}
 		
 		item* makeItem(int id){
 			//srand((unsigned) time(0));

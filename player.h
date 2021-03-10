@@ -79,6 +79,7 @@ class Player {
 			i->increaseStats(this);
 			for(int k = 0; k < inventory.size(); k++){
                         	if(i == inventory.at(k)){
+					delete inventory.at(k);
                                 	inventory.erase(inventory.begin()+k);
                         	}
                 	}		

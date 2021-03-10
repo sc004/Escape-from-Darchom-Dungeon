@@ -17,7 +17,7 @@ class Trap{
 			pot  = new FullHealth(9, "FullHealth Potion");
 		}
 		~Trap(){
-			if(pot !=NULL|| pot != nullptr){
+			if(pot !=NULL&& pot != nullptr){
                         	delete pot;
                 	}
 		}

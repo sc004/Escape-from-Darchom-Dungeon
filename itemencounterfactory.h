@@ -10,10 +10,16 @@
 using namespace std;
 class ItemEncounterFactory: public EncounterFactory{
 	public:
+		vector<ItemEncounter*> items;
 		ItemEncounterFactory(){}
-		~ItemEncounterFactory();
+		~ItemEncounterFactory(){
+			for(int i=0;i<items.size();i++){
+                                delete items.at(i);
+                        }
+		}
 		virtual Encounter* makeEncounter(){
-			Encounter* item = new ItemEncounter(3);
+			ItemEncounter* item = new ItemEncounter(3);
+			items.push_back(item);
 			return item;
 		}
 };

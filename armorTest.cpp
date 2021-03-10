@@ -29,7 +29,7 @@ TEST(ChestPlateTest, IncreaseStats) {
 	int _attack=0;
 	Player* p1 = new Player(health,_attack,defense,speed);
 	c->increaseStats(p1);
-                EXPECT_EQ(p1->get_defense(), 53);
+                EXPECT_EQ(p1->get_defense(), 3);
 }
 
 TEST(HelmetTest, getDefense) {
@@ -50,10 +50,10 @@ TEST(HelmetTest, getName) {
 
 TEST(HelmetTest, IncreaseStats) {
         Helmet* h = new Helmet(2, "helmet", 4);
-	int health;
-	int speed;
-	int defense;
-	int _attack;
+	int health = 100;
+	int speed = 20;
+	int defense = 50;
+	int _attack = 12;
         Player* p1 = new Player(health,_attack,defense,speed);
         h->increaseStats(p1);
         EXPECT_EQ(p1->get_defense(), 54);
@@ -76,10 +76,10 @@ TEST(GreavesTest, getName) {
 
 TEST(GreavesTest, IncreaseStats) {
         Greaves* g = new Greaves(3, "Greaves", 2);
-	int health;
-	int speed;
-	int defense;
-	int _attack;
+	int health = 100;
+	int speed = 20;
+	int defense = 50;
+	int _attack = 20;
         Player* p1 = new Player(health, _attack, defense, speed);
         g->increaseStats(p1);
         EXPECT_EQ(p1->get_defense(), 52);

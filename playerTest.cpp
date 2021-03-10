@@ -15,37 +15,37 @@
 using namespace std;
 
 TEST(PlayerTest, getHealth){
-	int health = 0;
-	int attack = 0;
-	int defense = 0;
-	int speed = 0;
+	int health = 100;
+	int attack = 50;
+	int defense = 50;
+	int speed = 50;
 	Player* p1 = new Player(health, attack, defense, speed);
 	EXPECT_EQ(p1->get_health(), 100);
 }
 
 TEST(PlayerTest, getDefense){
-        int health = 0;
-        int attack = 0;
-        int defense = 0;
-        int speed = 0;
+        int health = 100;
+        int attack = 50;
+        int defense = 50;
+        int speed = 50;
         Player* p1 = new Player(health, attack, defense, speed);
         EXPECT_EQ(p1->get_defense(),50);
 }
 
 TEST(PlayerTest, getSpeed){
-        int health = 0;
-        int attack = 0;
-        int defense = 0;
-        int speed = 0;
+        int health = 100;
+        int attack = 50;
+        int defense =50;
+        int speed = 50;
         Player* p1 = new Player(health, attack, defense, speed);
         EXPECT_EQ(p1->get_speed(),50);
 }
 
 TEST(PlayerTest, getAttack){
-        int health = 0;
-        int attack = 0;
-        int defense = 0;
-        int speed = 0;
+        int health = 100;
+        int attack = 60;
+        int defense = 50;
+        int speed = 30;
         Player* p1 = new Player(health, attack, defense, speed);
         EXPECT_EQ(p1->get_attack(),60);
 }
@@ -75,10 +75,10 @@ TEST(PlayerTest, additemsArmor){
 }
 
 TEST(PlayerTest, useItemPotion){
-	int health = 0;
-	int attack = 0;
-	int defense = 0;
-	int speed = 0;
+	int health = 100;
+	int attack = 20;
+	int defense = 30;
+	int speed = 40;
 	Player* p1 = new Player(health, attack, defense, speed);
 	item* pot = new FullHealth(9, "FullHealth");
 	p1->UseItems(pot);
@@ -104,7 +104,7 @@ TEST(PlayerTest, attackEnemyAdvantage){
 	item* pot = new FullHealth(9, "FullHealth");
 	Goblin* e = new Goblin(hp,attack1,defense1,speed1,weakness,name,k,pot);
 	p1->attack(e);
-	EXPECT_EQ(e->get_hp(),40);
+	EXPECT_EQ(e->get_hp(),160);
 }
 
 TEST(PlayerTest, attackEnemyNoAdvantage){
@@ -126,7 +126,7 @@ TEST(PlayerTest, attackEnemyNoAdvantage){
         item* pot = new FullHealth(9,"FullHealth");
         Goblin* e = new Goblin(hp,attack1,defense1,speed1,weakness,name,k,pot);
         p1->attack(e);
-        EXPECT_EQ(e->get_hp(),58);
+        EXPECT_EQ(e->get_hp(),118);
 }
 
 TEST(PlayerTest, testEquipWeapon){
@@ -141,14 +141,14 @@ TEST(PlayerTest, testEquipWeapon){
 	int atk = 21;
 	bow* b = new bow(id,n,dur,atk);
 	p1->equipWeapon(b);
-	EXPECT_EQ(p1->get_attack(),81);
+	EXPECT_EQ(p1->get_attack(),21);
 }
 
 TEST(PlayerTest, testEquipMultipleWeapons){
-	int health;
-	int attack;
-	int defense;
-	int speed = 0;
+	int health = 0;
+	int attack = 10;
+	int defense = 10;
+	int speed = 10;
 	Player* p1 = new Player(health, attack, defense, speed);
 	int id = 1;
 	string n = "Base Sword";
@@ -163,15 +163,15 @@ TEST(PlayerTest, testEquipMultipleWeapons){
 	int atk2 = 21;
 	bow* b = new bow(id2,n2,dur2,atk2);
 	p1->equipWeapon(b);
-	EXPECT_EQ(p1->get_attack(),81);
+	EXPECT_EQ(p1->get_attack(),31);
 	
 }
 
 TEST(PlayerTest, testUnequipWeapon){
-        int health = 0;
-        int attack = 0;
-        int defense = 0;
-        int speed = 0;
+        int health = 100;
+        int attack = 30;
+        int defense = 20;
+        int speed = 20;
         Player* p1 = new Player(health, attack, defense, speed);
         int id = 4;
         string n = "Base Bow";
@@ -180,7 +180,7 @@ TEST(PlayerTest, testUnequipWeapon){
         bow* b = new bow(id,n,dur,atk);
 	p1->equipWeapon(b);
         p1->unequipWeapon(b);
-        EXPECT_EQ(p1->get_attack(),60);
+        EXPECT_EQ(p1->get_attack(),30);
 }
 
 int main(int argc, char **argv){

@@ -214,7 +214,6 @@ class EnemyEncounter : public Encounter{
 			if(k1!= nullptr && k1!=NULL){
                                 delete k1;
                         }
-			cout << "deleted a mob\n";
 		}
 		void run(Player* p){
 			bool isOver = false;

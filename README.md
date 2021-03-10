@@ -39,15 +39,19 @@ From here the Dungeon class will take over and give the client a menu to build t
  ![Generate Dungeon](https://github.com/cs100/final-project-bmorc001-jli283-schitt008/blob/master/Generate.png)
  
  In an Item Encounter:
+ 
  ![Item Encounter](https://github.com/cs100/final-project-bmorc001-jli283-schitt008/blob/master/ItemEncounter.png)
  
  In a Trap Encounter:
+ 
  ![Trap Encounter](https://github.com/cs100/final-project-bmorc001-jli283-schitt008/blob/master/TrapEncounter.png)
  
  In an Enemy Encounter:
+ 
  ![Enemy Encounter](https://github.com/cs100/final-project-bmorc001-jli283-schitt008/blob/master/EnemyEncounter.png)
  
  In the Player's backpack:
+ 
  ![Player Backpack](https://github.com/cs100/final-project-bmorc001-jli283-schitt008/blob/master/Backpack.png)
  
  ## Installation/Usage

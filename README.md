@@ -96,9 +96,8 @@ During all of the encounters and in between them, you interact with the program 
  
  <details><summary>Example of the WeaponTest</summary>
  <p>
-  ```
-  
-[bmorc001@hammer final-project-bmorc001-jli283-schitt008]$ ./WeaponTest
+
+```$ ./WeaponTest
 [==========] Running 16 tests from 4 test suites.
 [----------] Global test environment set-up.
 [----------] 4 tests from SwordTest
